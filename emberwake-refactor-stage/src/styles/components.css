@@ -163,9 +163,9 @@
   left: 12px;
   z-index: 28;
   display: grid;
-  grid-template-columns: 3px 12px;
-  gap: 8px;
-  padding: 12px 8px 12px 8px;
+  grid-template-columns: 5px auto;
+  gap: 12px;
+  padding: 16px 14px 16px 12px;
   border: 1px solid rgba(229, 232, 220, 0.12);
   border-radius: 999px;
   background:
@@ -177,8 +177,8 @@
 
 .page-progress-track {
   position: relative;
-  width: 3px;
-  min-height: 186px;
+  width: 5px;
+  min-height: 242px;
   overflow: hidden;
   border-radius: 999px;
   background: rgba(239, 232, 220, 0.13);
@@ -195,55 +195,48 @@
 
 .page-progress-links {
   display: grid;
-  gap: 4px;
+  gap: 7px;
 }
 
 .page-progress-link {
   position: relative;
   min-width: 0;
   display: grid;
-  grid-template-columns: 10px;
+  grid-template-columns: 16px auto;
   align-items: center;
-  gap: 0;
-  min-height: 20px;
+  gap: 8px;
+  min-height: 26px;
   color: rgba(239, 232, 220, 0.46);
   font-family: var(--font-mono);
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 900;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.12em;
   text-decoration: none;
   transition: color 160ms ease, transform 160ms ease;
 }
 
 .page-progress-node {
-  width: 7px;
-  height: 7px;
-  border: 1px solid rgba(239, 232, 220, 0.38);
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(239, 232, 220, 0.42);
   border-radius: 999px;
   background: rgba(5, 7, 6, 0.9);
   transition: border-color 160ms ease, background 160ms ease, box-shadow 160ms ease;
 }
 
 .page-progress-label {
-  position: absolute;
-  left: 20px;
-  top: 50%;
+  position: static;
   display: block;
-  padding: 5px 8px;
-  border: 1px solid rgba(229, 232, 220, 0.12);
-  border-radius: 999px;
-  background: rgba(6, 8, 7, 0.92);
-  opacity: 0;
-  pointer-events: none;
-  transform: translate(-6px, -50%);
-  transition: opacity 160ms ease, transform 160ms ease;
+  opacity: 1;
+  pointer-events: auto;
+  transform: none;
+  transition: color 160ms ease;
   white-space: nowrap;
 }
 
 .page-progress-link:hover .page-progress-label,
 .page-progress-link:focus-visible .page-progress-label {
-  opacity: 1;
-  transform: translate(0, -50%);
+  color: var(--color-text);
 }
 
 .page-progress-link:hover,
@@ -258,7 +251,7 @@
 .page-progress-link.is-active .page-progress-node {
   border-color: var(--color-accent);
   background: var(--color-accent);
-  box-shadow: 0 0 14px rgba(224, 179, 106, 0.46);
+  box-shadow: 0 0 18px rgba(224, 179, 106, 0.58);
 }
 
 .hero {

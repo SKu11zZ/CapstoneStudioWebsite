@@ -46,15 +46,13 @@
 
   .page-progress {
     left: 12px;
+    grid-template-columns: 5px auto;
+    padding-right: 12px;
   }
 
-  .page-progress-label {
-    display: none;
-  }
-
-  .page-progress {
-    grid-template-columns: 3px auto;
-    padding-right: 8px;
+  .page-progress-link {
+    gap: 7px;
+    font-size: 11px;
   }
 }
 
@@ -100,16 +98,25 @@
   .page-progress {
     top: calc(var(--header-height) + 10px);
     left: 8px;
-    gap: 7px;
-    padding: 9px 7px;
+    gap: 8px;
+    padding: 11px 9px;
   }
 
   .page-progress-track {
-    min-height: 132px;
+    min-height: 170px;
   }
 
   .page-progress-link {
-    min-height: 15px;
+    grid-template-columns: 12px auto;
+    gap: 6px;
+    min-height: 19px;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+
+  .page-progress-node {
+    width: 10px;
+    height: 10px;
   }
 
   .display-title {

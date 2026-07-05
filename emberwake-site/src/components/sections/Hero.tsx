@@ -15,8 +15,8 @@ export function Hero({ content }: HeroProps) {
         <div className="hero__copy">
           <p className="eyebrow">{content.hero.eyebrow}</p>
           <h1>
-            {content.hero.title}
-            <span>{content.hero.zhTitle}</span>
+            <span className="hero__title-line">{content.hero.title}</span>
+            <span className="hero__title-sub">{content.hero.zhTitle}</span>
           </h1>
           <p>{content.hero.subtitle}</p>
           <div className="hero__actions">

@@ -5,9 +5,26 @@ type PageProgressProps = {
   content: SiteContent;
 };
 
+const progressLabels: Record<string, string> = {
+  top: "\u4e3b\u9875",
+  featured: "\u4e3b\u63a8",
+  games: "\u6e38\u620f",
+  team: "\u6210\u5458",
+  visuals: "\u753b\u9762",
+  timeline: "\u8def\u7ebf",
+  contact: "\u8054\u7cfb"
+};
+
 export function PageProgress({ content }: PageProgressProps) {
   const items = useMemo(
-    () => [{ id: "top", href: "#top", label: content.brand.short }, ...content.nav],
+    () => [
+      { id: "top", href: "#top", label: progressLabels.top, ariaLabel: content.brand.full },
+      ...content.nav.map((item) => ({
+        ...item,
+        label: progressLabels[item.id] ?? item.label,
+        ariaLabel: item.label
+      }))
+    ],
     [content]
   );
   const [activeId, setActiveId] = useState(items[0].id);
@@ -63,6 +80,7 @@ export function PageProgress({ content }: PageProgressProps) {
           className="page-progress__item"
           href={item.href}
           key={item.id}
+          aria-label={item.ariaLabel}
           aria-current={item.id === activeId ? "location" : undefined}
           data-active={item.id === activeId ? "true" : undefined}
           data-passed={index <= activeIndex ? "true" : undefined}
