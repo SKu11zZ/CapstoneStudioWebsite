@@ -1,0 +1,75 @@
+.about {
+  position: relative;
+  display: grid;
+  align-items: start;
+  gap: clamp(28px, 5vw, 72px);
+  grid-template-columns: minmax(0, 0.98fr) minmax(320px, 0.72fr);
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+  isolation: isolate;
+}
+
+.about::before {
+  position: absolute;
+  inset: -96px -88px -120px auto;
+  z-index: -1;
+  width: min(720px, 62vw);
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(7, 9, 13, 0.9), rgba(7, 9, 13, 0.28) 48%, rgba(7, 9, 13, 0.86)),
+    url("/assets/generated/studio-workbench-fade.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.32;
+  -webkit-mask-image: radial-gradient(circle at 56% 54%, #000 0%, #000 38%, transparent 76%);
+  mask-image: radial-gradient(circle at 56% 54%, #000 0%, #000 38%, transparent 76%);
+  pointer-events: none;
+}
+
+.about__copy p {
+  max-width: 720px;
+  margin-bottom: 0;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.about__keywords {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.about__keyword {
+  display: grid;
+  gap: 10px;
+  padding: 20px 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.about__keyword span {
+  color: var(--color-subtle);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 760;
+}
+
+.about__keyword strong {
+  color: var(--color-text);
+  font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+@media (max-width: 860px) {
+  .about::before {
+    inset: -70px -42px auto;
+    width: auto;
+    height: 520px;
+    opacity: 0.22;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+  }
+}

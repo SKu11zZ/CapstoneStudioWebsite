@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=IBM+Plex+Mono:wght@400;500&family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:#0c0a08;color:#efe8dc;font-family:'Noto Sans SC',-apple-system,'Helvetica Neue',Helvetica,Arial,sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+    ::selection{background:#e8a25c;color:#14100b}
+    @keyframes emberFloat{0%{transform:translateY(0);opacity:0}12%{opacity:.85}85%{opacity:.15}100%{transform:translateY(-48vh);opacity:0}}
+    @keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(7px)}}
+  </style>
+</helmet>
+
+<header style="position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:0 clamp(16px,4vw,40px);height:68px;background:rgba(12,10,8,0.78);backdrop-filter:blur(14px);border-bottom:1px solid rgba(239,232,220,0.08)">
+  <a href="#top" style="display:flex;align-items:center;gap:11px;text-decoration:none;color:#efe8dc">
+    <span style="width:11px;height:11px;border:1.5px solid #e8a25c;transform:rotate(45deg);display:block;flex:none"></span>
+    <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.24em">EMBERWAKE</span>
+  </a>
+  <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
+    <nav aria-label="{{ t.a11y.nav }}" style="display:flex;align-items:center;gap:26px">
+      <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="6">
+        <a href="{{ n.href }}" style="color:rgba(239,232,220,0.72);text-decoration:none;font-size:14px;letter-spacing:0.02em;white-space:nowrap" style-hover="color:#efe8dc">{{ n.label }}</a>
+      </sc-for>
+    </nav>
+  </sc-if>
+  <div style="display:flex;align-items:center;gap:12px">
+    <div role="group" aria-label="{{ t.a11y.lang }}" style="display:flex;gap:2px;border:1px solid rgba(239,232,220,0.22);border-radius:999px;padding:3px">
+      <button type="button" onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="{{ enBtnStyle }}">EN</button>
+      <button type="button" onClick="{{ setZh }}" aria-pressed="{{ isZh }}" style="{{ zhBtnStyle }}">中文</button>
+    </div>
+    <sc-if value="{{ isMobile }}" hint-placeholder-val="{{ false }}">
+      <button type="button" onClick="{{ toggleMenu }}" aria-label="{{ t.a11y.menu }}" aria-expanded="{{ menuOpen }}" style="appearance:none;background:transparent;border:1px solid rgba(239,232,220,0.22);border-radius:8px;color:#efe8dc;width:40px;height:40px;font-size:17px;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0">{{ menuGlyph }}</button>
+    </sc-if>
+  </div>
+</header>
+
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+  <div style="position:fixed;top:68px;left:0;right:0;bottom:0;z-index:55;background:rgba(12,10,8,0.97);display:flex;flex-direction:column;gap:4px;padding:24px clamp(16px,5vw,40px)">
+    <sc-for list="{{ navLinks }}" as="n" hint-placeholder-count="6">
+      <a href="{{ n.href }}" onClick="{{ closeMenu }}" style="color:#efe8dc;text-decoration:none;font-size:22px;font-weight:500;padding:14px 4px;border-bottom:1px solid rgba(239,232,220,0.08)">{{ n.label }}</a>
+    </sc-for>
+    <a href="{{ steamUrl }}" onClick="{{ closeMenu }}" style="margin-top:22px;display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 24px;border-radius:8px;background:{{ accent }};color:#161009;font-weight:700;font-size:16px;text-decoration:none">{{ t.hero.ctaWishlist }}</a>
+  </div>
+</sc-if>
+
+<section id="top" data-screen-label="Hero" style="position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:130px clamp(16px,5vw,48px) 110px;overflow:hidden;background:radial-gradient(900px 520px at 80% -12%, rgba(92,118,138,0.11), transparent 60%), linear-gradient(#0c0a08,#0e0b08)">
+  <div style="position:absolute;inset:0;pointer-events:none;background:{{ heroGlow }}"></div>
+  <div style="position:absolute;left:50%;top:56%;transform:translate(-50%,-50%);width:min(74vw,620px);aspect-ratio:1;border-radius:50%;border:1px solid rgba(232,162,92,0.22);box-shadow:inset 0 0 120px rgba(232,140,60,0.10);pointer-events:none"></div>
+  <sc-if value="{{ showEmbers }}" hint-placeholder-val="{{ true }}">{{ emberField }}</sc-if>
+  <div style="position:relative;z-index:1;max-width:900px;display:flex;flex-direction:column;align-items:center;gap:0">
+    <p style="margin:0 0 18px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.hero.eyebrow }}</p>
+    <h1 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(52px,11vw,124px);line-height:0.98;letter-spacing:0.02em;color:#f5efe3;text-wrap:balance">{{ t.hero.title }}</h1>
+    <sc-if value="{{ t.hero.titleZh }}" hint-placeholder-val="{{ false }}">
+      <p style="margin:12px 0 0;font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);letter-spacing:0.5em;color:rgba(245,239,227,0.85)">{{ t.hero.titleZh }}</p>
+    </sc-if>
+    <p style="margin:26px 0 0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-style:italic;font-size:clamp(20px,3.2vw,30px);line-height:1.4;color:rgba(239,232,220,0.92);max-width:640px;text-wrap:pretty">{{ t.hero.fantasy }}</p>
+    <p style="margin:14px 0 0;font-size:clamp(14px,1.6vw,16px);line-height:1.7;color:rgba(239,232,220,0.6);max-width:520px;text-wrap:pretty">{{ t.hero.sub }}</p>
+    <div style="margin-top:38px;display:flex;flex-wrap:wrap;justify-content:center;gap:14px">
+      <a href="{{ steamUrl }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 30px;border-radius:8px;background:{{ accent }};color:#161009;font-weight:700;font-size:16px;text-decoration:none;transition:all .15s" style-hover="filter:brightness(1.1);transform:translateY(-1px)">{{ t.hero.ctaWishlist }}</a>
+      <a href="{{ discordUrl }}" style="display:inline-flex;align-items:center;gap:10px;padding:16px 26px;border-radius:8px;border:1px solid rgba(239,232,220,0.3);color:#efe8dc;font-weight:500;font-size:16px;text-decoration:none;transition:all .15s" style-hover="border-color:rgba(239,232,220,0.7);background:rgba(239,232,220,0.05)">{{ t.hero.ctaDiscord }}</a>
+      <a href="#media" style="display:inline-flex;align-items:center;gap:10px;padding:16px 22px;border-radius:8px;color:rgba(239,232,220,0.75);font-weight:500;font-size:16px;text-decoration:none;transition:all .15s" style-hover="color:#efe8dc">▶&nbsp;{{ t.hero.ctaTrailer }}</a>
+    </div>
+  </div>
+  <a href="#game" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:6px;text-decoration:none;color:rgba(239,232,220,0.5);font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.26em">
+    <span>{{ t.hero.scroll }}</span>{{ cueArrow }}
+  </a>
+</section>
+
+<section id="game" data-screen-label="Game" style="padding:clamp(72px,10vw,120px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:1120px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,400px),1fr));gap:clamp(32px,5vw,64px);align-items:center">
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.game.eyebrow }}</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.08;color:#f5efe3;text-wrap:balance">{{ t.game.title }}</h2>
+      <p style="margin:0;font-size:17px;line-height:1.85;color:rgba(239,232,220,0.78);text-wrap:pretty">{{ t.game.body1 }}</p>
+      <p style="margin:0;font-size:16px;line-height:1.85;color:rgba(239,232,220,0.58);text-wrap:pretty">{{ t.game.body2 }}</p>
+      <p style="margin:6px 0 0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:rgba(239,232,220,0.45)">{{ t.game.meta }}</p>
+    </div>
+    <div style="aspect-ratio:4/3;border:1px dashed rgba(239,232,220,0.2);border-radius:12px;background:repeating-linear-gradient(45deg,#15110d 0 14px,#110e0a 14px 28px);display:flex;align-items:center;justify-content:center;padding:24px">
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:rgba(239,232,220,0.5);text-align:center;line-height:1.8">{{ t.game.artLabel }}</span>
+    </div>
+  </div>
+</section>
+
+<section id="features" data-screen-label="Features" style="padding:clamp(72px,10vw,120px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:44px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.features.eyebrow }}</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.08;color:#f5efe3">{{ t.features.title }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:20px">
+      <sc-for list="{{ features }}" as="f" hint-placeholder-count="3">
+        <div style="border:1px solid rgba(239,232,220,0.1);border-radius:12px;background:#12100c;padding:30px 26px;display:flex;flex-direction:column;gap:18px;transition:border-color .2s" style-hover="border-color:rgba(232,162,92,0.4)">
+          <div style="display:flex;align-items:center;justify-content:space-between">
+            <span style="{{ f.iconStyle }}"></span>
+            <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;color:rgba(239,232,220,0.35)">{{ f.num }}</span>
+          </div>
+          <h3 style="margin:0;font-size:20px;font-weight:700;color:#f5efe3;line-height:1.3">{{ f.title }}</h3>
+          <p style="margin:0;font-size:15px;line-height:1.8;color:rgba(239,232,220,0.62);text-wrap:pretty">{{ f.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="media" data-screen-label="Media" style="padding:clamp(72px,10vw,120px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:32px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:640px">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.media.eyebrow }}</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.08;color:#f5efe3">{{ t.media.title }}</h2>
+    </div>
+    <div style="aspect-ratio:16/9;border:1px dashed rgba(239,232,220,0.2);border-radius:12px;background:repeating-linear-gradient(45deg,#15110d 0 14px,#110e0a 14px 28px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:24px">
+      <span style="width:72px;height:72px;border-radius:50%;border:1.5px solid {{ accent }};display:flex;align-items:center;justify-content:center;color:{{ accent }};font-size:22px;padding-left:5px">▶</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;color:rgba(239,232,220,0.5);text-align:center;line-height:1.8">{{ t.media.trailerLabel }}</span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+      <sc-for list="{{ mediaSlots }}" as="m" hint-placeholder-count="3">
+        <div style="aspect-ratio:16/9;border:1px dashed rgba(239,232,220,0.18);border-radius:10px;background:repeating-linear-gradient(45deg,#15110d 0 14px,#110e0a 14px 28px);display:flex;align-items:center;justify-content:center;padding:16px">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.14em;color:rgba(239,232,220,0.45);text-align:center;line-height:1.8">{{ m.label }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Why follow" style="padding:clamp(72px,10vw,120px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.why.eyebrow }}</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.08;color:#f5efe3">{{ t.why.title }}</h2>
+    </div>
+    <div style="display:flex;flex-direction:column">
+      <sc-for list="{{ whyPoints }}" as="w" hint-placeholder-count="3">
+        <div style="display:flex;gap:24px;padding:26px 0;border-top:1px solid rgba(239,232,220,0.1);align-items:baseline">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:{{ accent }};flex:none">{{ w.num }}</span>
+          <div style="display:flex;flex-direction:column;gap:8px">
+            <h3 style="margin:0;font-size:19px;font-weight:700;color:#f5efe3">{{ w.title }}</h3>
+            <p style="margin:0;font-size:15px;line-height:1.8;color:rgba(239,232,220,0.62);text-wrap:pretty">{{ w.desc }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="news" data-screen-label="News" style="padding:clamp(72px,10vw,120px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.news.eyebrow }}</p>
+        <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(32px,4.5vw,52px);line-height:1.08;color:#f5efe3">{{ t.news.title }}</h2>
+      </div>
+      <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;color:rgba(239,232,220,0.6);text-decoration:none" style-hover="color:#efe8dc">{{ t.news.all }} →</a>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px">
+      <sc-for list="{{ newsItems }}" as="a" hint-placeholder-count="3">
+        <a href="#" style="border:1px solid rgba(239,232,220,0.1);border-radius:12px;background:#12100c;padding:28px 26px;display:flex;flex-direction:column;gap:14px;text-decoration:none;transition:border-color .2s" style-hover="border-color:rgba(232,162,92,0.4)">
+          <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:rgba(239,232,220,0.4)">{{ a.date }}</span>
+          <h3 style="margin:0;font-size:19px;font-weight:700;color:#f5efe3;line-height:1.4">{{ a.title }}</h3>
+          <p style="margin:0;font-size:14px;line-height:1.75;color:rgba(239,232,220,0.58);text-wrap:pretty">{{ a.excerpt }}</p>
+          <span style="margin-top:auto;font-size:13px;color:{{ accent }};font-weight:500">{{ t.news.read }} →</span>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="community" data-screen-label="Community" style="padding:clamp(80px,11vw,140px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07);position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;pointer-events:none;background:{{ heroGlow }}"></div>
+  <div style="position:relative;max-width:720px;margin:0 auto;display:flex;flex-direction:column;align-items:center;text-align:center;gap:22px">
+    <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(34px,5vw,58px);line-height:1.12;color:#f5efe3;text-wrap:balance">{{ t.community.title }}</h2>
+    <p style="margin:0;font-size:16px;line-height:1.8;color:rgba(239,232,220,0.65);max-width:520px;text-wrap:pretty">{{ t.community.body }}</p>
+    <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:14px;margin-top:8px">
+      <a href="{{ discordUrl }}" style="display:inline-flex;align-items:center;gap:10px;padding:15px 28px;border-radius:8px;background:{{ accent }};color:#161009;font-weight:700;font-size:15px;text-decoration:none;transition:all .15s" style-hover="filter:brightness(1.1);transform:translateY(-1px)">{{ t.community.ctaDiscord }}</a>
+      <a href="{{ steamUrl }}" style="display:inline-flex;align-items:center;gap:10px;padding:15px 24px;border-radius:8px;border:1px solid rgba(239,232,220,0.3);color:#efe8dc;font-weight:500;font-size:15px;text-decoration:none;transition:all .15s" style-hover="border-color:rgba(239,232,220,0.7);background:rgba(239,232,220,0.05)">{{ t.community.ctaWishlist }}</a>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:10px;width:100%;max-width:460px">
+      <input type="email" placeholder="{{ t.community.emailPh }}" aria-label="{{ t.community.emailPh }}" style="flex:1;min-width:220px;padding:13px 16px;border-radius:8px;border:1px solid rgba(239,232,220,0.22);background:rgba(239,232,220,0.05);color:#efe8dc;font-size:14px;font-family:inherit;outline:none">
+      <button type="button" style="appearance:none;cursor:pointer;padding:13px 22px;border-radius:8px;border:1px solid rgba(239,232,220,0.3);background:transparent;color:#efe8dc;font-size:14px;font-weight:500;font-family:inherit;transition:all .15s" style-hover="background:rgba(239,232,220,0.08)">{{ t.community.subscribe }}</button>
+    </div>
+  </div>
+</section>
+
+<section id="studio" data-screen-label="Studio" style="padding:clamp(72px,10vw,110px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07)">
+  <div style="max-width:720px;margin:0 auto;display:flex;flex-direction:column;gap:18px">
+    <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:{{ accent }}">{{ t.studio.eyebrow }}</p>
+    <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(30px,4vw,46px);line-height:1.12;color:#f5efe3;text-wrap:balance">{{ t.studio.title }}</h2>
+    <p style="margin:0;font-size:16px;line-height:1.9;color:rgba(239,232,220,0.7);text-wrap:pretty">{{ t.studio.body }}</p>
+    <p style="margin:0;font-size:15px;line-height:1.9;color:rgba(239,232,220,0.5);text-wrap:pretty">{{ t.studio.promise }}</p>
+  </div>
+</section>
+
+<section id="partners" data-screen-label="Partners" style="padding:clamp(72px,10vw,110px) clamp(16px,5vw,48px);border-top:1px solid rgba(239,232,220,0.07);background:#0f0c09">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;flex-direction:column;gap:14px;max-width:680px">
+      <p style="margin:0;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.3em;color:rgba(239,232,220,0.4)">{{ t.partners.eyebrow }}</p>
+      <h2 style="margin:0;font-family:'Cormorant Garamond','Noto Serif SC',serif;font-weight:600;font-size:clamp(28px,3.6vw,42px);line-height:1.12;color:#f5efe3">{{ t.partners.title }}</h2>
+      <p style="margin:0;font-size:15px;line-height:1.8;color:rgba(239,232,220,0.62);text-wrap:pretty">{{ t.partners.body }}</p>
+      <p style="margin:4px 0 0;display:inline-flex;align-items:center;gap:10px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.1em;color:rgba(239,232,220,0.55)">
+        <span style="width:8px;height:8px;border-radius:50%;background:{{ accent }};flex:none"></span>
+        <span>{{ t.partners.status }}</span>
+      </p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:16px">
+      <sc-for list="{{ partnerItems }}" as="p" hint-placeholder-count="4">
+        <div style="border:1px solid rgba(239,232,220,0.09);border-radius:10px;padding:22px 20px;display:flex;flex-direction:column;gap:8px">
+          <h3 style="margin:0;font-size:15px;font-weight:700;color:#f5efe3">{{ p.title }}</h3>
+          <p style="margin:0;font-size:13.5px;line-height:1.7;color:rgba(239,232,220,0.55);text-wrap:pretty">{{ p.desc }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;gap:14px;align-items:center">
+      <a href="mailto:hello@emberwake.games" style="display:inline-flex;align-items:center;gap:10px;padding:13px 24px;border-radius:8px;border:1px solid rgba(239,232,220,0.3);color:#efe8dc;font-weight:500;font-size:14px;text-decoration:none;transition:all .15s" style-hover="background:rgba(239,232,220,0.06)">{{ t.partners.contact }}</a>
+      <a href="#" style="font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.08em;color:rgba(239,232,220,0.55);text-decoration:underline;text-underline-offset:4px" style-hover="color:#efe8dc">{{ t.partners.presskit }}</a>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:13px;color:rgba(239,232,220,0.4)">hello@emberwake.games</span>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer" style="padding:44px clamp(16px,5vw,48px) 56px;border-top:1px solid rgba(239,232,220,0.09)">
+  <div style="max-width:1120px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px">
+    <div style="display:flex;align-items:center;gap:11px">
+      <span style="width:10px;height:10px;border:1.5px solid {{ accent }};transform:rotate(45deg);display:block;flex:none"></span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.22em;color:rgba(239,232,220,0.7)">EMBERWAKE</span>
+      <span style="font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(239,232,220,0.35)">© 2026</span>
+    </div>
+    <nav aria-label="{{ t.a11y.footNav }}" style="display:flex;flex-wrap:wrap;gap:20px">
+      <sc-for list="{{ footerLinks }}" as="f" hint-placeholder-count="6">
+        <a href="{{ f.href }}" style="color:rgba(239,232,220,0.6);text-decoration:none;font-size:13.5px" style-hover="color:#efe8dc">{{ f.label }}</a>
+      </sc-for>
+    </nav>
+    <div role="group" aria-label="{{ t.a11y.lang }}" style="display:flex;gap:2px;border:1px solid rgba(239,232,220,0.2);border-radius:999px;padding:3px">
+      <button type="button" onClick="{{ setEn }}" aria-pressed="{{ isEn }}" style="{{ enBtnStyle }}">EN</button>
+      <button type="button" onClick="{{ setZh }}" aria-pressed="{{ isZh }}" style="{{ zhBtnStyle }}">中文</button>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;accent&quot;: {&quot;editor&quot;: &quot;color&quot;, &quot;default&quot;: &quot;#e8a25c&quot;, &quot;options&quot;: [&quot;#e8a25c&quot;, &quot;#e2604f&quot;, &quot;#8ecdb7&quot;, &quot;#b9a6e8&quot;], &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Theme&quot;},
+  &quot;showEmbers&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Theme&quot;},
+  &quot;steamUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;},
+  &quot;discordUrl&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;#&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Links&quot;}
+}">
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    let lang = 'en';
+    try {
+      const saved = localStorage.getItem('ew-lang');
+      if (saved === 'en' || saved === 'zh') lang = saved;
+      else if ((navigator.language || '').toLowerCase().startsWith('zh')) lang = 'zh';
+    } catch (e) {}
+    this.state = { lang, menuOpen: false, vw: (typeof window !== 'undefined' ? window.innerWidth : 1200) };
+    this._onResize = () => this.setState({ vw: window.innerWidth });
+
+    this.TEXT = {
+      en: {
+        a11y: { nav: 'Main navigation', footNav: 'Footer links', lang: 'Language', menu: 'Toggle menu' },
+        nav: { game: 'The Game', features: 'Gameplay', media: 'Media', news: 'Devlog', studio: 'Studio', partners: 'Partners' },
+        hero: {
+          eyebrow: 'EMBERWAKE STUDIO PRESENTS',
+          title: 'PROJECT LANTERN',
+          titleZh: '',
+          fantasy: 'Explore a world that remembers every light you leave behind.',
+          sub: 'A handcrafted exploration adventure for PC. In development now — wishlist it and watch it grow from day one.',
+          ctaWishlist: 'Wishlist on Steam',
+          ctaDiscord: 'Join Discord',
+          ctaTrailer: 'Watch Trailer',
+          scroll: 'SCROLL'
+        },
+        game: {
+          eyebrow: 'THE GAME',
+          title: 'Carry the last lantern into the drowned valley.',
+          body1: 'Every place you light stays lit. Paths open, creatures wake, and the valley slowly rebuilds itself around the routes you dare to take. Come back hours later — your light is still burning, and so is everything it changed.',
+          body2: 'No map markers. No quest log. The world itself remembers where you\u2019ve been, and that memory is your map. Project Lantern is a quiet, dangerous game about leaving a mark on a place that was ready to forget you.',
+          meta: 'PC (STEAM) · SINGLE-PLAYER · EXPLORATION / ADVENTURE',
+          artLabel: 'KEY ART PLACEHOLDER — REPLACE WITH GAME KEY ART (4:3)'
+        },
+        features: {
+          eyebrow: 'GAMEPLAY',
+          title: 'Three things you\u2019ll actually do.',
+          items: [
+            { title: 'Light that stays', desc: 'Every lantern you hang changes the valley for good. Wildlife returns to lit groves, mist retreats from lit ridges — and some things are drawn to the light that you\u2019d rather stayed away.' },
+            { title: 'Build your path through dangerous ruins', desc: 'Ropes, planks, counterweights. There\u2019s no double jump — if you want to reach the bell tower, you build the way up. Every route you build is a route you keep.' },
+            { title: 'A world that answers back', desc: 'Creatures learn where your light lives. Some follow it home. Some snuff it out. The valley\u2019s response to you is the closest thing this game has to a story — and it\u2019s yours.' }
+          ]
+        },
+        media: {
+          eyebrow: 'MEDIA',
+          title: 'See it in motion.',
+          trailerLabel: 'ANNOUNCEMENT TRAILER PLACEHOLDER — EMBED VIDEO HERE (16:9)',
+          slots: [
+            'SCREENSHOT 01 — LANTERN-LIT GROVE (16:9)',
+            'SCREENSHOT 02 — ROPE ASCENT, BELL TOWER (16:9)',
+            'GIF 03 — CREATURE FOLLOWING LIGHT (16:9)'
+          ]
+        },
+        why: {
+          eyebrow: 'WHY NOW',
+          title: 'Why follow a game this early?',
+          points: [
+            { title: 'Wishlists decide what gets finished', desc: 'On Steam, early wishlists are how a small game proves it deserves to exist. Yours genuinely moves the needle — it\u2019s the single most useful thing a player can do right now.' },
+            { title: 'Early followers play first', desc: 'Closed playtests go to Discord members before anyone else. The people in the server now are naming creatures and breaking our rope physics weekly.' },
+            { title: 'We build in the open', desc: 'A real devlog every two weeks — what worked, what we cut, what still sucks. Progress, not marketing beats.' }
+          ]
+        },
+        news: {
+          eyebrow: 'DEVLOG',
+          title: 'From the workshop.',
+          all: 'ALL POSTS',
+          read: 'Read',
+          items: [
+            { date: 'JUN 20, 2026', title: 'Devlog #12 — Teaching creatures to follow light', excerpt: 'The moth-stags finally path toward lanterns instead of walls. Here\u2019s the three failed approaches it took to get there, with embarrassing footage.' },
+            { date: 'JUN 05, 2026', title: 'Devlog #11 — The rope system rewrite', excerpt: 'We threw out eight months of rope physics and started over. It hurt. The new system is why bridge-building finally feels like your hands are doing it.' },
+            { date: 'MAY 18, 2026', title: 'First closed playtest — what you broke', excerpt: '41 testers, 9 hours of average playtime, one player who lit the entire eastern ridge in a single sitting. What we learned and what changes next.' }
+          ]
+        },
+        community: {
+          title: 'The valley is better with you in it.',
+          body: 'Join the Discord to playtest early builds, vote on creature names, and watch a world get built one lantern at a time. Or just lurk — we post everything there first.',
+          ctaDiscord: 'Join the Discord',
+          ctaWishlist: 'Wishlist on Steam',
+          emailPh: 'your@email.com — devlog in your inbox',
+          subscribe: 'Subscribe'
+        },
+        studio: {
+          eyebrow: 'THE STUDIO',
+          title: 'Emberwake is a small team with one rule: build worlds that remember the player.',
+          body: 'We make games about leaving a mark on quiet, mysterious places — games where the world notices you were there and is different because of it. Project Lantern is the first. It will not be the last.',
+          promise: 'Our promise to players is simple: no filler, no live-service treadmill, no forgetting what you did. We\u2019d rather build one valley you remember than ten you don\u2019t.'
+        },
+        partners: {
+          eyebrow: 'FOR PARTNERS & PRESS',
+          title: 'Working with Emberwake',
+          body: 'Emberwake Studio builds handcrafted, systems-driven exploration games for PC, designed around persistent player impact.',
+          status: 'PROJECT LANTERN — IN PRODUCTION · VERTICAL SLICE Q4 2026 · SEEKING SELECT PARTNERS',
+          contact: 'Contact us',
+          presskit: 'Press Kit (coming soon)',
+          items: [
+            { title: 'Publishing', desc: 'Open to conversations with publishers who back small teams and long-tail titles.' },
+            { title: 'Platform', desc: 'PC first on Steam; evaluating console partners for a post-launch window.' },
+            { title: 'Content creators', desc: 'Preview builds and capture-ready assets for creators — reach out any time.' },
+            { title: 'Press', desc: 'Interviews, early access to builds, and a full press kit at vertical slice.' }
+          ]
+        },
+        footer: { steam: 'Steam', discord: 'Discord', youtube: 'YouTube', twitter: 'X / Twitter', presskit: 'Press Kit', contact: 'Contact' }
+      },
+      zh: {
+        a11y: { nav: '主导航', footNav: '页脚链接', lang: '语言', menu: '打开菜单' },
+        nav: { game: '游戏', features: '玩法', media: '画面', news: '开发日志', studio: '工作室', partners: '合作' },
+        hero: {
+          eyebrow: 'EMBERWAKE STUDIO 出品',
+          title: 'PROJECT LANTERN',
+          titleZh: '提灯计划',
+          fantasy: '走进一片会记住你每次点亮痕迹的未知世界。',
+          sub: '一款为 PC 打造的手工探索冒险游戏。正在开发中——现在加入愿望单，从第一天见证它长大。',
+          ctaWishlist: '加入 Steam 愿望单',
+          ctaDiscord: '加入 Discord',
+          ctaTrailer: '看预告片',
+          scroll: '往下看'
+        },
+        game: {
+          eyebrow: '关于这款游戏',
+          title: '提着最后一盏灯，走进被淹没的山谷。',
+          body1: '你点亮的每一处都会一直亮着。道路打开，生灵苏醒，山谷沿着你敢走的路线慢慢重建自己。几个小时后回来，你的灯还亮着，被它改变的一切也都还在。',
+          body2: '没有地图标记，没有任务列表。世界自己记得你去过哪里，而那份记忆就是你的地图。《提灯计划》是一个安静而危险的游戏，讲的是在一个准备遗忘你的地方，留下抹不掉的痕迹。',
+          meta: 'PC（STEAM）· 单人 · 探索 / 冒险',
+          artLabel: '主视觉占位 — 之后替换为游戏主视觉图（4:3）'
+        },
+        features: {
+          eyebrow: '核心玩法',
+          title: '你会真正做的三件事。',
+          items: [
+            { title: '留下的光，不会熄灭', desc: '你挂起的每盏灯都会永久改变山谷。生灵回到被点亮的树林，雾气从亮起的山脊退开——也有些东西会循着光而来，而你未必希望它们来。' },
+            { title: '在危险遗迹中自己开路', desc: '绳索、木板、配重。这里没有二段跳——想上钟楼，就自己把路搭出来。你搭出的每一条路，都永远属于你。' },
+            { title: '一个会回应你的世界', desc: '生灵会记住你的光在哪里。有的跟着光回家，有的想把它掐灭。山谷对你的回应，就是这个游戏最接近“剧情”的东西——而它只属于你。' }
+          ]
+        },
+        media: {
+          eyebrow: '画面',
+          title: '看看它动起来的样子。',
+          trailerLabel: '首曝预告片占位 — 之后嵌入视频（16:9）',
+          slots: [
+            '截图 01 — 灯光下的树林（16:9）',
+            '截图 02 — 攀绳登上钟楼（16:9）',
+            'GIF 03 — 循光而来的生灵（16:9）'
+          ]
+        },
+        why: {
+          eyebrow: '为什么是现在',
+          title: '为什么要这么早关注一个游戏？',
+          points: [
+            { title: '愿望单决定它能不能做完', desc: '在 Steam 上，早期愿望单是一个小游戏证明自己值得存在的方式。你的一次点击真的有分量——这是玩家现在能做的最有用的一件事。' },
+            { title: '早来的人先玩', desc: '封闭测试永远先给 Discord 成员。现在在群里的人，每周都在给生物起名字、把我们的绳索物理玩坏。' },
+            { title: '我们公开做游戏', desc: '每两周一篇真实的开发日志——什么做成了、什么被砍了、什么还很烂。是进度，不是营销节奏。' }
+          ]
+        },
+        news: {
+          eyebrow: '开发日志',
+          title: '来自工坊。',
+          all: '全部文章',
+          read: '阅读',
+          items: [
+            { date: '2026.06.20', title: '开发日志 #12 — 教生物学会追光', excerpt: '蛾鹿终于会朝灯走、而不是朝墙走了。这里是失败的三种方案，附丢人现眼的录像。' },
+            { date: '2026.06.05', title: '开发日志 #11 — 绳索系统重写记', excerpt: '我们扔掉了八个月的绳索物理，从头再来。很痛。但新系统让搭桥终于像是你亲手在搭。' },
+            { date: '2026.05.18', title: '首次封闭测试 — 你们把什么玩坏了', excerpt: '41 位测试者，平均 9 小时游戏时长，还有一位一口气点亮了整条东岭。我们学到了什么、接下来改什么。' }
+          ]
+        },
+        community: {
+          title: '有你在，山谷会更亮一点。',
+          body: '加入 Discord，抢先玩到测试版本、给生物投票起名，看一个世界被一盏一盏灯搭起来。潜水也欢迎——所有消息都会先发在那里。',
+          ctaDiscord: '加入 Discord',
+          ctaWishlist: '加入 Steam 愿望单',
+          emailPh: '你的邮箱 — 开发日志直达收件箱',
+          subscribe: '订阅'
+        },
+        studio: {
+          eyebrow: '关于工作室',
+          title: 'Emberwake 是一个小团队，只有一条规矩：做会记住玩家的世界。',
+          body: '我们做的游戏，都关于在安静而神秘的地方留下痕迹——世界会注意到你来过，并因此变得不一样。《提灯计划》是第一款，不会是最后一款。',
+          promise: '我们对玩家的承诺很简单：不注水、不做无止境的运营跑步机、不遗忘你做过的事。宁可做一座你记得住的山谷，也不做十座你记不住的。'
+        },
+        partners: {
+          eyebrow: '合作与媒体',
+          title: '与 Emberwake 合作',
+          body: 'Emberwake Studio 专注于手工打磨、以系统驱动的 PC 探索游戏，核心设计围绕“玩家的持久影响”。',
+          status: '《提灯计划》 — 制作中 · 垂直切片 2026 Q4 · 开放少量合作洽谈',
+          contact: '联系我们',
+          presskit: '媒体资料包（即将上线）',
+          items: [
+            { title: '发行', desc: '欢迎愿意支持小团队与长线作品的发行商联系洽谈。' },
+            { title: '平台', desc: 'PC / Steam 优先；主机平台合作计划在发售后窗口评估。' },
+            { title: '内容创作者', desc: '为创作者提供试玩版本与可直接使用的素材，随时联系。' },
+            { title: '媒体', desc: '接受采访、提供抢先试玩版本；垂直切片阶段将提供完整媒体资料包。' }
+          ]
+        },
+        footer: { steam: 'Steam', discord: 'Discord', youtube: 'YouTube', twitter: 'X / Twitter', presskit: '媒体资料包', contact: '联系我们' }
+      }
+    };
+  }
+
+  componentDidMount() {
+    document.documentElement.lang = this.state.lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = this.state.lang === 'zh' ? 'Emberwake Studio — 提灯计划' : 'Emberwake Studio — Project Lantern';
+    window.addEventListener('resize', this._onResize);
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('resize', this._onResize);
+  }
+
+  setLang(lang) {
+    this.setState({ lang });
+    try { localStorage.setItem('ew-lang', lang); } catch (e) {}
+    document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    document.title = lang === 'zh' ? 'Emberwake Studio — 提灯计划' : 'Emberwake Studio — Project Lantern';
+  }
+
+  hexA(hex, a) {
+    const h = (hex || '#e8a25c').replace('#', '');
+    const n = parseInt(h.length === 3 ? h.split('').map(c => c + c).join('') : h, 16);
+    return 'rgba(' + ((n >> 16) & 255) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  }
+
+  getEmbers(accent) {
+    if (this._emberAccent !== accent) {
+      this._emberAccent = accent;
+      const dots = [];
+      for (let i = 0; i < 16; i++) {
+        const size = 2 + (i % 4);
+        dots.push(React.createElement('div', {
+          key: i,
+          style: {
+            position: 'absolute',
+            left: ((i * 6.7 + 3) % 100) + '%',
+            bottom: ((i * 11) % 26) + '%',
+            width: size + 'px',
+            height: size + 'px',
+            borderRadius: '50%',
+            background: this.hexA(accent, 0.85),
+            boxShadow: '0 0 8px ' + this.hexA(accent, 0.6),
+            animation: 'emberFloat ' + (7 + (i % 5) * 1.7) + 's linear ' + (i * 0.9) + 's infinite',
+            opacity: 0
+          }
+        }));
+      }
+      this._embers = React.createElement('div', {
+        style: { position: 'absolute', inset: 0, overflow: 'hidden', pointerEvents: 'none' }
+      }, dots);
+    }
+    return this._embers;
+  }
+
+  renderVals() {
+    const lang = this.state.lang;
+    const t = this.TEXT[lang];
+    const accent = this.props.accent ?? '#e8a25c';
+    const vw = this.state.vw;
+    const isDesktop = vw >= 880;
+
+    const btnBase = {
+      appearance: 'none', border: 'none', cursor: 'pointer',
+      fontFamily: "'IBM Plex Mono', monospace", fontSize: '12px', letterSpacing: '0.08em',
+      padding: '6px 13px', borderRadius: '999px', transition: 'all .15s', lineHeight: 1.4
+    };
+    const activeBtn = { ...btnBase, background: '#efe8dc', color: '#14100b', fontWeight: 500 };
+    const idleBtn = { ...btnBase, background: 'transparent', color: 'rgba(239,232,220,0.6)' };
+
+    const shapeBase = { display: 'block', flex: 'none', border: '1.5px solid ' + accent };
+    const shapes = [
+      { ...shapeBase, width: '16px', height: '16px', transform: 'rotate(45deg)' },
+      { ...shapeBase, width: '18px', height: '18px', borderRadius: '50%' },
+      { ...shapeBase, width: '16px', height: '16px' }
+    ];
+
+    if (!this._cueArrow) {
+      this._cueArrow = React.createElement('span', {
+        style: { display: 'inline-block', animation: 'cueBob 2.2s ease-in-out infinite', fontSize: '14px' }
+      }, '↓');
+    }
+
+    return {
+      t,
+      lang,
+      isEn: lang === 'en',
+      isZh: lang === 'zh',
+      isDesktop,
+      isMobile: !isDesktop,
+      menuOpen: this.state.menuOpen && !isDesktop,
+      menuGlyph: this.state.menuOpen ? '✕' : '☰',
+      accent,
+      showEmbers: this.props.showEmbers ?? true,
+      steamUrl: this.props.steamUrl ?? '#',
+      discordUrl: this.props.discordUrl ?? '#',
+      heroGlow: 'radial-gradient(720px 440px at 50% 68%, ' + this.hexA(accent, 0.16) + ', transparent 65%)',
+      emberField: this.getEmbers(accent),
+      cueArrow: this._cueArrow,
+      setEn: () => this.setLang('en'),
+      setZh: () => this.setLang('zh'),
+      toggleMenu: () => this.setState(s => ({ menuOpen: !s.menuOpen })),
+      closeMenu: () => this.setState({ menuOpen: false }),
+      enBtnStyle: lang === 'en' ? activeBtn : idleBtn,
+      zhBtnStyle: lang === 'zh' ? activeBtn : idleBtn,
+      navLinks: [
+        { href: '#game', label: t.nav.game },
+        { href: '#features', label: t.nav.features },
+        { href: '#media', label: t.nav.media },
+        { href: '#news', label: t.nav.news },
+        { href: '#studio', label: t.nav.studio },
+        { href: '#partners', label: t.nav.partners }
+      ],
+      features: t.features.items.map((f, i) => ({ ...f, num: '0' + (i + 1), iconStyle: shapes[i] })),
+      mediaSlots: t.media.slots.map(label => ({ label })),
+      whyPoints: t.why.points.map((w, i) => ({ ...w, num: '0' + (i + 1) })),
+      newsItems: t.news.items,
+      partnerItems: t.partners.items,
+      footerLinks: [
+        { href: this.props.steamUrl ?? '#', label: t.footer.steam },
+        { href: this.props.discordUrl ?? '#', label: t.footer.discord },
+        { href: '#', label: t.footer.youtube },
+        { href: '#', label: t.footer.twitter },
+        { href: '#', label: t.footer.presskit },
+        { href: 'mailto:hello@emberwake.games', label: t.footer.contact }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

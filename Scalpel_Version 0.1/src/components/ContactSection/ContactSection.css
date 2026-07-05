@@ -1,0 +1,102 @@
+.contact {
+  position: relative;
+  display: grid;
+  align-items: start;
+  gap: clamp(28px, 4vw, 58px);
+  grid-template-columns: minmax(0, 0.82fr) minmax(320px, 0.72fr);
+  padding-bottom: clamp(84px, 9vw, 132px);
+  isolation: isolate;
+}
+
+.contact::before {
+  position: absolute;
+  inset: -120px max(-7vw, -96px) -40px -96px;
+  z-index: -1;
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(7, 9, 13, 0.9), rgba(7, 9, 13, 0.34) 52%, rgba(7, 9, 13, 0.82)),
+    linear-gradient(180deg, rgba(7, 9, 13, 0.32), rgba(7, 9, 13, 0.86) 82%),
+    url("/assets/generated/comms-yard-fade.png");
+  background-position: center bottom;
+  background-size: cover;
+  opacity: 0.33;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 22%, #000 78%, transparent 100%);
+  pointer-events: none;
+}
+
+.contact__mail {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 17px;
+  border: 1px solid rgba(180, 37, 45, 0.56);
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, var(--color-accent), var(--color-accent-dark));
+  font-family: var(--font-display);
+  font-size: 0.76rem;
+  font-weight: 720;
+  text-transform: uppercase;
+  transition:
+    transform 160ms ease,
+    background 160ms ease;
+}
+
+.contact__mail:hover,
+.contact__mail:focus-visible {
+  transform: translateY(-1px);
+  background: linear-gradient(180deg, #c52b34, var(--color-accent-dark));
+  outline: none;
+}
+
+.contact__mail img {
+  width: 16px;
+  height: 16px;
+}
+
+.contact__grid {
+  display: grid;
+  gap: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.contact-card {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--color-line);
+  transition: color 160ms ease;
+}
+
+.contact-card:hover,
+.contact-card:focus-visible {
+  color: var(--color-accent-3);
+  outline: none;
+}
+
+.contact-card span {
+  color: var(--color-subtle);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.contact-card strong {
+  overflow-wrap: anywhere;
+  color: var(--color-text);
+  font-weight: 650;
+}
+
+@media (max-width: 900px) {
+  .contact::before {
+    inset: -86px -36px -40px;
+    opacity: 0.24;
+  }
+
+  .contact {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,7 +1,8 @@
-node_modules
-dist
-.vite
-.pnpm-store
+node_modules/
+dist/
+.vite/
+.pnpm-store/
 .DS_Store
 *.log
 qa/chrome-profile*/
+.git.local-backup/

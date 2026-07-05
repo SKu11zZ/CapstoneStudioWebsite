@@ -551,60 +551,60 @@
   font-size: 0.66rem;
 }
 
-.project-cover.cover-river {
+.cover-theme-river {
   --cover-a: rgba(118, 190, 218, 0.38);
   --cover-b: rgba(216, 182, 106, 0.27);
 }
 
-.cover-stars {
+.cover-theme-stars {
   --cover-a: rgba(142, 183, 214, 0.34);
   --cover-b: rgba(188, 153, 229, 0.18);
 }
 
-.cover-stars .cover-river {
+.cover-theme-stars .cover-river {
   clip-path: polygon(0 48%, 12% 34%, 27% 45%, 42% 26%, 58% 43%, 73% 27%, 100% 42%, 100% 64%, 0 70%);
 }
 
-.cover-stars .cover-symbol {
+.cover-theme-stars .cover-symbol {
   border-radius: 36% 64% 42% 58%;
 }
 
-.cover-letter {
+.cover-theme-letter {
   --cover-a: rgba(216, 182, 106, 0.22);
   --cover-b: rgba(185, 106, 85, 0.24);
 }
 
-.cover-letter .cover-symbol {
+.cover-theme-letter .cover-symbol {
   border-radius: 16px;
   transform: rotate(-7deg);
 }
 
-.cover-letter .cover-symbol::before {
+.cover-theme-letter .cover-symbol::before {
   inset: 28px 18px;
   border-width: 1px 0 0;
   transform: rotate(0deg);
 }
 
-.cover-bells {
+.cover-theme-bells {
   --cover-a: rgba(142, 183, 214, 0.26);
   --cover-b: rgba(216, 182, 106, 0.22);
 }
 
-.cover-bells .cover-symbol {
+.cover-theme-bells .cover-symbol {
   border-radius: 48% 48% 12% 12%;
 }
 
-.cover-chronicle {
+.cover-theme-chronicle {
   --cover-a: rgba(185, 106, 85, 0.22);
   --cover-b: rgba(142, 183, 214, 0.22);
 }
 
-.cover-chronicle .cover-symbol {
+.cover-theme-chronicle .cover-symbol {
   border-radius: 8px;
   transform: rotate(45deg);
 }
 
-.cover-featured {
+.cover-theme-featured {
   --cover-a: rgba(142, 183, 214, 0.34);
   --cover-b: rgba(216, 182, 106, 0.26);
 }

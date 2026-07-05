@@ -1,0 +1,127 @@
+.devlog {
+  position: relative;
+  isolation: isolate;
+}
+
+.devlog::before {
+  position: absolute;
+  inset: -118px auto -118px -110px;
+  z-index: -1;
+  width: min(820px, 70vw);
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(7, 9, 13, 0.88), rgba(7, 9, 13, 0.24) 46%, rgba(7, 9, 13, 0.92)),
+    url("/assets/generated/maintenance-corridor-fade.png");
+  background-position: center;
+  background-size: cover;
+  opacity: 0.3;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 68%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 68%, transparent 100%);
+  pointer-events: none;
+}
+
+.devlog__list {
+  display: grid;
+  gap: 10px;
+}
+
+.devlog-card {
+  display: grid;
+  align-items: center;
+  gap: 18px;
+  grid-template-columns: 92px 96px minmax(0, 1fr) auto;
+  min-height: 72px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--color-line);
+  color: var(--color-muted);
+  transition:
+    background 160ms ease,
+    color 160ms ease;
+}
+
+.devlog-card:last-child {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.devlog-card:hover {
+  background: rgba(255, 255, 255, 0.026);
+}
+
+.devlog-card__date,
+.devlog-card__category {
+  font-family: var(--font-display);
+  font-size: 0.74rem;
+  font-weight: 720;
+  text-transform: uppercase;
+}
+
+.devlog-card__date {
+  color: var(--color-accent-3);
+}
+
+.devlog-card__category {
+  color: var(--color-subtle);
+}
+
+.devlog-card__copy {
+  min-width: 0;
+}
+
+.devlog-card h3 {
+  overflow: hidden;
+  margin-bottom: 4px;
+  color: var(--color-text);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.devlog-card p {
+  overflow: hidden;
+  margin: 0;
+  color: var(--color-muted);
+  font-size: 0.88rem;
+  line-height: 1.55;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.devlog-card a {
+  color: var(--color-text);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 720;
+  white-space: nowrap;
+}
+
+.devlog-card a:hover,
+.devlog-card a:focus-visible {
+  color: var(--color-accent-3);
+  outline: none;
+}
+
+@media (max-width: 720px) {
+  .devlog::before {
+    inset: -82px -40px auto;
+    width: auto;
+    height: 520px;
+    opacity: 0.2;
+  }
+
+  .devlog-card {
+    align-items: start;
+    grid-template-columns: 80px minmax(0, 1fr);
+  }
+
+  .devlog-card__category,
+  .devlog-card a {
+    display: none;
+  }
+
+  .devlog-card h3,
+  .devlog-card p {
+    white-space: normal;
+  }
+}

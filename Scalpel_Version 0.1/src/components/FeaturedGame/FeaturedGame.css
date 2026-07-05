@@ -1,0 +1,172 @@
+.featured {
+  position: relative;
+  isolation: isolate;
+}
+
+.featured::before {
+  position: absolute;
+  inset: -110px auto -110px max(-5vw, -80px);
+  z-index: -1;
+  width: min(780px, 72vw);
+  content: "";
+  background-image:
+    linear-gradient(90deg, rgba(7, 9, 13, 0.9), rgba(7, 9, 13, 0.28) 54%, rgba(7, 9, 13, 0.92)),
+    url("/assets/generated/lunar-horizon-fade.png");
+  background-position: left center;
+  background-size: cover;
+  opacity: 0.26;
+  -webkit-mask-image: radial-gradient(circle at 44% 50%, #000 0%, #000 38%, transparent 76%);
+  mask-image: radial-gradient(circle at 44% 50%, #000 0%, #000 38%, transparent 76%);
+  pointer-events: none;
+}
+
+.featured__grid {
+  display: grid;
+  align-items: start;
+  gap: clamp(24px, 3vw, 34px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+}
+
+.featured__content {
+  grid-column: span 7;
+  min-width: 0;
+  padding: clamp(24px, 3vw, 36px);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: var(--color-card);
+}
+
+.featured__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+
+.featured__tags span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 30px;
+  padding: 6px 10px;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  color: var(--color-muted);
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.featured__copy {
+  max-width: 720px;
+}
+
+.featured__copy p {
+  margin-bottom: 18px;
+  color: var(--color-muted);
+  font-size: 1rem;
+  line-height: 1.78;
+}
+
+.featured__copy p:last-child {
+  margin-bottom: 0;
+}
+
+.featured__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.featured__media {
+  position: relative;
+  grid-column: span 5;
+  min-width: 0;
+  margin: 0;
+}
+
+.featured__media-image {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-lg);
+  background: #0b0e13;
+  box-shadow: var(--shadow-soft);
+}
+
+.featured__media-image::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(180deg, rgba(7, 9, 13, 0.04), rgba(7, 9, 13, 0.52)),
+    radial-gradient(circle at 60% 18%, rgba(255, 255, 255, 0.08), transparent 15rem);
+  pointer-events: none;
+}
+
+.featured__media-image img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+
+.featured__media figcaption {
+  display: grid;
+  gap: 4px;
+  margin-top: 14px;
+  padding-inline: 2px;
+  font-family: var(--font-display);
+}
+
+.featured__media figcaption span {
+  color: var(--color-subtle);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.featured__media figcaption strong {
+  color: var(--color-text);
+  font-size: 1rem;
+  line-height: 1.25;
+  text-transform: uppercase;
+}
+
+.featured__media figcaption small {
+  color: var(--color-muted);
+  font-family: var(--font-ui);
+  font-size: 0.86rem;
+  line-height: 1.55;
+}
+
+@media (max-width: 960px) {
+  .featured::before {
+    inset: -80px -40px auto;
+    width: auto;
+    height: 520px;
+    opacity: 0.18;
+  }
+
+  .featured__content,
+  .featured__media {
+    grid-column: 1 / -1;
+  }
+
+  .featured__media-image img {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+@media (max-width: 560px) {
+  .featured__content {
+    padding: 22px;
+  }
+
+  .featured__actions {
+    display: grid;
+  }
+}

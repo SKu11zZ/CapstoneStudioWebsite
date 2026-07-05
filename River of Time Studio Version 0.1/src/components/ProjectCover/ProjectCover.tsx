@@ -19,7 +19,7 @@ export function ProjectCover({ title, subtitle, chapter, variant, meta = [], com
   const { language } = useLanguage();
 
   return (
-    <div className={`project-cover cover-${variant} ${compact ? "project-cover-compact" : ""}`.trim()} aria-label={`${title[language]} cover`}>
+    <div className={`project-cover cover-theme-${variant} ${compact ? "project-cover-compact" : ""}`.trim()} aria-label={`${title[language]} cover`}>
       <div className="cover-art" aria-hidden="true">
         <span className="cover-grid" />
         <span className="cover-river" />
