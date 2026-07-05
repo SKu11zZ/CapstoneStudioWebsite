@@ -55,6 +55,13 @@ a {
   color: inherit;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
 button,
 input {
   font: inherit;
@@ -77,6 +84,10 @@ p {
   overflow-wrap: anywhere;
 }
 
+section[id] {
+  scroll-margin-top: calc(var(--header-height) + 0.75rem);
+}
+
 h1,
 h2 {
   font-family: var(--font-serif);
@@ -86,7 +97,7 @@ h2 {
 
 h2 {
   margin: 0;
-  font-size: clamp(2.2rem, 5vw, 4.4rem);
+  font-size: clamp(1.9rem, 4vw, 3.35rem);
   line-height: 1.02;
   font-weight: 600;
 }

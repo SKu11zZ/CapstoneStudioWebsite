@@ -8,6 +8,17 @@ export type NavLink = {
   label: string;
 };
 
+export type NavItem = NavLink;
+
+export type LinkConfig = {
+  steamUrl: string;
+  discordUrl: string;
+  youtubeUrl: string;
+  twitterUrl: string;
+  pressKitUrl: string;
+  contactEmail: string;
+};
+
 export type GameStatus = "featured" | "dev" | "released" | "proto";
 
 export type Game = {

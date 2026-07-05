@@ -27,17 +27,19 @@
             <h2 class="section-title">${ui.escapeHtml(f.title)}</h2>
             <p class="meta-line">${ui.escapeHtml(f.meta)}</p>
             <dl class="case-file">${facts}</dl>
-            <p class="fantasy-line">${ui.escapeHtml(f.fantasy)}</p>
-            <p class="body-copy">${ui.escapeHtml(f.body)}</p>
-            <div class="highlight-list">${highlights}</div>
             <div class="cluster">
               ${ui.button({ href: ctx.links.steamUrl, label: h.ctaWishlist, variant: "primary", icon: "link" })}
               ${ui.button({ href: "#media", label: f.ctaTrailer, variant: "secondary", icon: "play" })}
             </div>
+            <div class="highlight-list">${highlights}</div>
           </div>
           <div class="stack media-stack">
             ${ui.placeholder(f.trailerLabel, "media-large", { video: true })}
             ${ui.placeholder(f.shotLabel, "media-strip")}
+            <div class="featured-brief">
+              <p class="fantasy-line">${ui.escapeHtml(f.fantasy)}</p>
+              <p class="body-copy">${ui.escapeHtml(f.body)}</p>
+            </div>
           </div>
         </div>
       </section>

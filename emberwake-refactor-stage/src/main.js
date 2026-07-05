@@ -49,9 +49,12 @@
     root.innerHTML = `
       <div class="site-shell">
         ${sections.Header(ctx)}
+        ${sections.PageProgress(ctx)}
         <main>
           ${sections.Hero(ctx)}
+          ${sections.SloganSection(ctx)}
           ${sections.FeaturedGame(ctx)}
+          ${sections.RoadmapSection(ctx)}
           ${sections.GamesSection(ctx)}
           ${sections.StudioSection(ctx)}
           ${sections.MediaSection(ctx)}
@@ -62,6 +65,7 @@
         ${sections.Footer(ctx)}
       </div>
     `;
+    requestAnimationFrame(updatePageProgress);
   }
 
   function setLanguage(lang) {
@@ -102,6 +106,13 @@
     const filterButton = event.target.closest("[data-filter]");
     if (filterButton) {
       setMediaFilter(filterButton.dataset.filter);
+      return;
+    }
+
+    const progressLink = event.target.closest("[data-progress-target]");
+    if (progressLink && state.menuOpen) {
+      state.menuOpen = false;
+      render();
     }
   });
 
@@ -118,6 +129,40 @@
       render();
     }
   });
+
+  function updatePageProgress() {
+    const progress = document.querySelector("[data-page-progress]");
+    if (!progress) return;
+
+    const doc = document.documentElement;
+    const maxScroll = Math.max(1, doc.scrollHeight - window.innerHeight);
+    const ratio = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+    progress.style.setProperty("--page-progress", ratio.toFixed(4));
+
+    const links = Array.from(progress.querySelectorAll("[data-progress-target]"));
+    let activeLink = links[0] || null;
+    const probeY = window.scrollY + window.innerHeight * 0.32;
+
+    links.forEach((link) => {
+      const target = document.querySelector(link.getAttribute("data-progress-target"));
+      if (!target) return;
+      const top = target.getBoundingClientRect().top + window.scrollY;
+      if (top <= probeY) activeLink = link;
+    });
+
+    links.forEach((link) => {
+      const isActive = link === activeLink;
+      link.classList.toggle("is-active", isActive);
+      if (isActive) {
+        link.setAttribute("aria-current", "location");
+      } else {
+        link.removeAttribute("aria-current");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", updatePageProgress, { passive: true });
+  window.addEventListener("resize", updatePageProgress);
 
   render();
 })();

@@ -8,16 +8,18 @@
   const nav = {
     zh: [
       ["#featured", "主推"],
+      ["#roadmap", "路线图"],
       ["#games", "作品"],
-      ["#studio", "工作室"],
+      ["#studio", "宣言"],
       ["#media", "档案"],
       ["#news", "札记"],
       ["#partners", "合作"]
     ],
     en: [
       ["#featured", "Featured"],
+      ["#roadmap", "Roadmap"],
       ["#games", "Works"],
-      ["#studio", "Studio"],
+      ["#studio", "Manifesto"],
       ["#media", "Archive"],
       ["#news", "Notes"],
       ["#partners", "Partners"]
@@ -156,16 +158,17 @@
         nav: "主导航",
         language: "语言",
         menu: "打开菜单",
+        progressNav: "页面进度导航",
         mediaFilter: "筛选档案",
         newsletter: "订阅制作札记"
       },
       hero: {
         eyebrow: "雾锚工作室",
-        title: "把陌生之地，做成会回信的世界。",
-        subtitle: "我们是一支小型独立团队，专做会记住玩家动作的系统叙事游戏：点亮一条路、寄出一封信、撞塌一块地面，世界都应该留下痕迹。",
+        title: "让玩家留下证据",
+        subtitle: "电影感的独立游戏工作室。我们把片场、机械、雾、灯和可互动系统搭在一起，让每一次行动都在世界里留下可被看见的后果。",
         featuredTag: "当前航标",
         featuredName: "雾灯山谷",
-        fantasy: "「在潮雾封锁的山谷里，每盏灯都是你留给世界的注脚。」",
+        fantasy: "「像拍一部会回应观众的电影，但你不是旁观者。」",
         ctaWishlist: "愿望单《雾灯山谷》",
         ctaGames: "翻阅作品档案",
         ctaDiscord: "进入观测站",
@@ -176,6 +179,16 @@
           { value: "04", label: "进行中的世界" },
           { value: "2W", label: "双周公开札记" },
           { value: "PC", label: "首发平台" }
+        ]
+      },
+      slogan: {
+        eyebrow: "片头字幕",
+        title: "Cinematic systems / Industrial worlds / Independent hands",
+        body: "我们追求的电影感不是只把画面压暗，而是让场景像被真实搭建过：有工艺、有噪声、有编号、有灯光动机，也有玩家亲手造成的痕迹。",
+        beats: [
+          { label: "SCENE", title: "每个场景都有拍摄动机", desc: "镜头感服务于玩法：雾、灯、遮挡和远景都要告诉玩家可以怎样行动。" },
+          { label: "MACHINE", title: "系统像机械一样可读", desc: "玩家不需要说明书，也能从声音、灯色、材质和运动里理解世界规则。" },
+          { label: "AFTERMATH", title: "后果要留在现场", desc: "选择不只进入日志。它应该改变路径、关系、生态、下一局，甚至改变沉默的地方。" }
         ]
       },
       featured: {
@@ -200,23 +213,33 @@
       },
       games: {
         eyebrow: "作品档案",
-        title: "四个世界，共用一套记忆法。",
+        title: "四个世界，共用一套记忆法",
         subtitle: "每个项目的类型不同，但都围绕同一个问题：如果玩家真的改变过一个地方，那个地方应该如何记住？"
       },
+      roadmap: {
+        eyebrow: "Road Map",
+        title: "制作路线，不是营销表",
+        subtitle: "参考电影发行站点的片单节奏和游戏工作室的开发日志，我们把可玩的阶段、测试、预告和资料包拆成可追踪节点。",
+        items: [
+          { phase: "01", date: "2026 Q3", title: "系统切片锁定", status: "进行中", desc: "雾灯、生态迁徙、可返回路线三套核心系统完成整合。" },
+          { phase: "02", date: "2026 Q4", title: "首轮封闭测试", status: "招募中", desc: "向观测站玩家开放 35 分钟可玩切片，收集路径和记忆系统反馈。" },
+          { phase: "03", date: "2027 Q1", title: "概念预告片", status: "筹备", desc: "用实机镜头剪出第一支 70 秒预告，建立项目的电影语气。" },
+          { phase: "04", date: "2027 Q2", title: "Steam 页面与媒体资料包", status: "排期", desc: "公开商店页、press kit、截图组和开发者访谈资料。" }
+        ]
+      },
       studio: {
-        eyebrow: "关于工作室",
-        title: "雾锚不是大厂，也不想假装自己是。我们只把少数世界做深。",
-        body: "我们喜欢小地图里的长期后果：一盏灯改变迁徙路线，一封信改变岛民关系，一场坍塌改变下一局策略。雾锚的规则很简单：玩家做过的事不能只在 UI 里被记录，它要在世界里长出形状。",
-        promise: "不做无限填充，不把每个系统都磨成日常任务，也不让玩家的选择在下一次加载后消失。我们宁愿少做几个项目，也要让每个地方有自己的记性。"
+        eyebrow: "工作室宣言",
+        title: "电影感不是滤镜，是制作纪律",
+        body: "雾锚的世界要像独立电影的片场：预算有限，但每一盏灯、每一块铁板、每一段噪声都必须有理由；玩家留下的光路、信件和坍塌，也必须在下一次回到现场时继续生效。"
       },
       media: {
         eyebrow: "视觉档案",
-        title: "从制作台上抽出的现场记录。",
+        title: "来自制作台的现场记录",
         tabs: { all: "全部", featured: "主推", dev: "制作中", released: "已发布" }
       },
       news: {
         eyebrow: "制作札记",
-        title: "这周我们修了什么，又拆了什么。",
+        title: "这周修了什么，又拆了什么",
         all: "全部札记",
         read: "阅读",
         items: [
@@ -226,7 +249,7 @@
         ]
       },
       community: {
-        title: "把你的痕迹放进我们的测试世界。",
+        title: "把你的痕迹放进测试世界",
         body: "进入观测站：抢先试玩、投票决定下一批原型、看真实制作进度。潜水也可以，内部截图和失败录像都会先发在那里。",
         ctaDiscord: "进入 Discord 观测站",
         ctaWishlist: "愿望单《雾灯山谷》",
@@ -260,16 +283,17 @@
         nav: "Main navigation",
         language: "Language",
         menu: "Toggle menu",
+        progressNav: "Page progress navigation",
         mediaFilter: "Filter archive",
         newsletter: "Subscribe to production notes"
       },
       hero: {
         eyebrow: "FOGANCHOR STUDIO",
-        title: "We build unfamiliar places that write back.",
-        subtitle: "A small independent team making systemic narrative games where player actions leave physical traces: light a route, deliver a letter, break a floor, and the world should remember.",
+        title: "Let players leave evidence",
+        subtitle: "A cinematic independent game studio building industrial, atmospheric worlds where every action leaves visible consequences inside the scene.",
         featuredTag: "CURRENT BEACON",
         featuredName: "Mistlamp Vale",
-        fantasy: "In a valley locked by sea fog, every lamp is a footnote you leave for the world.",
+        fantasy: "Like shooting a film that answers the audience back, except you are not watching from the seats.",
         ctaWishlist: "Wishlist Mistlamp Vale",
         ctaGames: "Browse the Archive",
         ctaDiscord: "Enter the Observatory",
@@ -280,6 +304,16 @@
           { value: "04", label: "worlds in motion" },
           { value: "2W", label: "note cadence" },
           { value: "PC", label: "first platform" }
+        ]
+      },
+      slogan: {
+        eyebrow: "OPENING CARD",
+        title: "Cinematic systems / Industrial worlds / Independent hands",
+        body: "For us, cinematic does not mean dark grading alone. It means sets that feel built: craft, noise, serial numbers, motivated light, and the visible aftermath of what the player touched.",
+        beats: [
+          { label: "SCENE", title: "Every scene has a playable motive", desc: "Fog, lamps, occlusion, and distance are not decoration. They tell the player how to act." },
+          { label: "MACHINE", title: "Systems should read like machinery", desc: "Rules should be legible through sound, signal color, materials, and motion." },
+          { label: "AFTERMATH", title: "Consequences stay on set", desc: "Choice should change routes, relationships, ecology, the next run, and even quiet spaces." }
         ]
       },
       featured: {
@@ -304,23 +338,33 @@
       },
       games: {
         eyebrow: "WORK ARCHIVE",
-        title: "Four worlds, one memory system.",
+        title: "Four worlds, one memory system",
         subtitle: "Each project takes a different genre route, but asks the same question: if a player truly changed a place, how should that place remember?"
       },
+      roadmap: {
+        eyebrow: "ROAD MAP",
+        title: "Production route, not marketing board",
+        subtitle: "Borrowing the release rhythm of film sites and the transparency of game dev logs, we track playable milestones, tests, trailers, and press materials as visible nodes.",
+        items: [
+          { phase: "01", date: "Q3 2026", title: "Systems slice lock", status: "IN PROGRESS", desc: "Integrate mist lamps, ecological migration, and returnable route systems." },
+          { phase: "02", date: "Q4 2026", title: "Closed playtest", status: "RECRUITING", desc: "Release a 35-minute playable slice to observatory players and collect route-memory feedback." },
+          { phase: "03", date: "Q1 2027", title: "Concept trailer", status: "PREP", desc: "Cut the first 70-second trailer from in-engine footage to establish the cinematic tone." },
+          { phase: "04", date: "Q2 2027", title: "Steam page and press kit", status: "SCHEDULED", desc: "Publish store page, press kit, screenshot set, and developer interview materials." }
+        ]
+      },
       studio: {
-        eyebrow: "THE STUDIO",
-        title: "Foganchor is not a big studio, and we are not pretending to be one.",
-        body: "We like long consequences inside small maps: a lamp changes migration, a letter changes island relationships, a collapse changes the next round. Our rule is simple: player history should not live only in UI. It should grow a shape in the world.",
-        promise: "No infinite filler, no system flattened into chores, no choices that vanish after a reload. We would rather make fewer projects and give each place a memory of its own."
+        eyebrow: "STUDIO MANIFESTO",
+        title: "Cinematic tone is production discipline",
+        body: "Foganchor worlds should feel like independent film sets: limited budget, but every lamp, iron plate, and signal noise has a reason; the light routes, letters, and collapses players leave behind must still matter when they return."
       },
       media: {
         eyebrow: "VISUAL ARCHIVE",
-        title: "Field records pulled from the workbench.",
+        title: "Field records from the workbench",
         tabs: { all: "All", featured: "Featured", dev: "In Production", released: "Released" }
       },
       news: {
         eyebrow: "PRODUCTION NOTES",
-        title: "What we fixed this week, and what we took apart.",
+        title: "What we fixed, and what we took apart",
         all: "ALL NOTES",
         read: "Read",
         items: [
@@ -330,7 +374,7 @@
         ]
       },
       community: {
-        title: "Put your traces into our test worlds.",
+        title: "Put your traces into test worlds",
         body: "Enter the observatory to play early builds, vote on the next prototypes, and see honest progress. Lurking is fine too; internal captures and failure footage land there first.",
         ctaDiscord: "Enter Discord Observatory",
         ctaWishlist: "Wishlist Mistlamp Vale",

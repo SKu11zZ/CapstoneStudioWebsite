@@ -42,11 +42,12 @@ body::before {
 body::after {
   content: "";
   position: fixed;
-  inset: auto 0 0;
+  inset: 0;
   z-index: -1;
-  height: 38vh;
   pointer-events: none;
-  background: radial-gradient(900px 280px at 50% 100%, rgba(237, 165, 93, 0.055), transparent 70%);
+  background:
+    linear-gradient(180deg, rgba(0, 0, 0, 0.28) 0 7%, transparent 7% 91%, rgba(0, 0, 0, 0.34) 91% 100%),
+    radial-gradient(900px 280px at 50% 100%, rgba(237, 165, 93, 0.055), transparent 70%);
 }
 
 ::selection {

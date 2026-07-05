@@ -19,6 +19,7 @@ npm install
 npm run dev
 npm run build
 npm run preview
+npm run serve
 ```
 
 ## Content Guide
@@ -34,7 +35,7 @@ npm run preview
 - Self-hosted fonts from Public Resources: `public/fonts`
 - Self-hosted icons from Public Resources: `public/icons`
 
-To add real trailer stills, screenshots, or cover art, place files in `public/media`, reference them from `src/data/content.ts`, and extend the media components if needed. The current placeholders are CSS-built so the default production build does not fetch remote images.
+To add real trailer stills, screenshots, or cover art, place files in `public/media`, reference them from `src/data/media.ts`, and extend the media components if needed. The current placeholders are CSS-built so the default production build does not fetch remote images.
 
 ## Subscription Form
 

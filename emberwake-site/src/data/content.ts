@@ -22,8 +22,8 @@ export const content: Localized<SiteContent> = {
     },
     hero: {
       eyebrow: "EMBERWAKE STUDIO / 2026 FIELD SLATE",
-      title: "We build worlds that remember you.",
-      zhTitle: "我们做会记住你的世界。",
+      title: "We build worlds that remember you",
+      zhTitle: "我们做会记住你的世界",
       subtitle:
         "A compact game studio dossier for worlds where every light, scar, and route can leave evidence.",
       start: "Enter Studio File",
@@ -53,18 +53,18 @@ export const content: Localized<SiteContent> = {
     },
     gamesIntro: {
       eyebrow: "PROJECT INDEX",
-      title: "Four active files, one studio rule.",
+      title: "Four active files, one studio rule",
       body:
         "Different genres, one obsession: places should remember that players passed through them."
     },
     teamIntro: {
       eyebrow: "CREW ROSTER",
-      title: "The people inside the file.",
+      title: "The people inside the file",
       body: "A small production crew arranged like developer ID cards, not a corporate headshot wall."
     },
     studio: {
       eyebrow: "STUDIO MANIFESTO",
-      title: "We make small games with long memories.",
+      title: "We make small games with long memories",
       body:
         "Emberwake Studio builds handcrafted systems where the player is not a visitor passing through a backdrop. Routes stay open. Scars remain visible. The world changes because you touched it.",
       promise:
@@ -73,13 +73,13 @@ export const content: Localized<SiteContent> = {
     },
     media: {
       eyebrow: "VISUAL ARCHIVE",
-      title: "Frames, concepts, and capture plates.",
+      title: "Frames, concepts, and capture plates",
       body: "A media library built from local/CSS plates until final screenshots and trailer stills are ready.",
       tabs: { all: "All", featured: "Featured", gameplay: "Gameplay", concept: "Concept", trailer: "Trailer" }
     },
     news: {
       eyebrow: "NEWS & DEVLOG",
-      title: "What the fires are working on.",
+      title: "What the fires are working on",
       all: "All posts",
       readMore: "Read more",
       items: [
@@ -89,7 +89,7 @@ export const content: Localized<SiteContent> = {
       ]
     },
     community: {
-      title: "Watch the worlds being assembled.",
+      title: "Watch the worlds being assembled",
       body:
         "Join the Discord for test builds, votes, and progress notes. Or keep a quiet line open for studio letters when the subscription system goes live.",
       ctaDiscord: "Join Discord",
@@ -102,7 +102,7 @@ export const content: Localized<SiteContent> = {
     },
     contact: {
       eyebrow: "COMMS CONSOLE",
-      title: "Send a signal to the studio.",
+      title: "Send a signal to the studio",
       body: "Business, press, platform, creator, and playtest conversations can start here. The newsletter console validates locally and does not submit until a same-origin endpoint is configured.",
       email: "Business contact",
       pressKit: "Press Kit",
@@ -116,12 +116,12 @@ export const content: Localized<SiteContent> = {
     },
     timeline: {
       eyebrow: "DEVELOPMENT ROUTE",
-      title: "Project Lantern roadmap.",
+      title: "Project Lantern roadmap",
       body: "A public-facing route map for the featured project, kept broad until each milestone is solid."
     },
     partners: {
       eyebrow: "PARTNERS & PRESS",
-      title: "Work with Emberwake.",
+      title: "Work with Emberwake",
       body:
         "We are open to conversations with publishers, platforms, creators, and press who understand small teams and long-lived game worlds.",
       status: "4 projects / Ashfall Arena released / Project Lantern vertical slice planned for Q4 2026",
@@ -166,8 +166,8 @@ export const content: Localized<SiteContent> = {
     },
     hero: {
       eyebrow: "EMBERWAKE STUDIO / 2026 片场场记",
-      title: "We build worlds that remember you.",
-      zhTitle: "我们做会记住你的世界。",
+      title: "We build worlds that remember you",
+      zhTitle: "我们做会记住你的世界",
       subtitle: "一份游戏工作室档案，记录那些会让每一盏灯、每一道伤痕、每一次走过的路留下证据的世界。",
       start: "进入工作室档案",
       featuredTag: "当前主推",
@@ -196,17 +196,17 @@ export const content: Localized<SiteContent> = {
     },
     gamesIntro: {
       eyebrow: "项目索引",
-      title: "四份活跃档案，一条规矩。",
+      title: "四份活跃档案，一条规矩",
       body: "题材各不相同，执念只有一个：让每个地方都记得玩家来过。"
     },
     teamIntro: {
       eyebrow: "成员名册",
-      title: "档案里的制作小队。",
+      title: "档案里的制作小队",
       body: "像开发者识别卡一样呈现的小团队，而不是普通企业团队头像墙。"
     },
     studio: {
       eyebrow: "工作室宣言",
-      title: "我们做小而有记忆的游戏。",
+      title: "我们做小而有记忆的游戏",
       body:
         "余烬醒时工作室相信，玩家不应该只是穿过背景布的游客。路要一直开着，伤痕要留在墙上，世界要因为你碰过它而发生改变。",
       promise:
@@ -215,13 +215,13 @@ export const content: Localized<SiteContent> = {
     },
     media: {
       eyebrow: "画面档案库",
-      title: "画幅、概念和捕捉板。",
+      title: "画幅、概念和捕捉板",
       body: "在最终截图和预告片定稿前，先用本地/CSS 片场板搭建真实媒体库的结构。",
       tabs: { all: "全部", featured: "主推", gameplay: "实机", concept: "概念", trailer: "预告" }
     },
     news: {
       eyebrow: "新闻与开发日志",
-      title: "我们正在做什么。",
+      title: "我们正在做什么",
       all: "全部文章",
       readMore: "阅读更多",
       items: [
@@ -231,7 +231,7 @@ export const content: Localized<SiteContent> = {
       ]
     },
     community: {
-      title: "亲眼看着这些世界被搭起来。",
+      title: "亲眼看着这些世界被搭起来",
       body: "加入 Discord，抢先试玩测试版本、投票决定我们接下来做什么、每两周看到真实进度。也可以留下邮箱，等订阅系统上线后接收开发信。",
       ctaDiscord: "加入 Discord",
       ctaWishlist: "愿望单《灯火计划》",
@@ -243,7 +243,7 @@ export const content: Localized<SiteContent> = {
     },
     contact: {
       eyebrow: "通讯控制台",
-      title: "向工作室发送信号。",
+      title: "向工作室发送信号",
       body: "商务、媒体、平台、内容创作者和试玩合作都可以从这里开始。订阅控制台只在本地校验，除非配置同源 endpoint，否则不会提交。",
       email: "商务联系",
       pressKit: "媒体资料包",
@@ -257,12 +257,12 @@ export const content: Localized<SiteContent> = {
     },
     timeline: {
       eyebrow: "开发路线",
-      title: "《灯火计划》路线图。",
+      title: "《灯火计划》路线图",
       body: "面向玩家公开的主推项目路线图，每个节点都只在足够可靠时公开更多细节。"
     },
     partners: {
       eyebrow: "合作与媒体",
-      title: "与余烬醒时合作。",
+      title: "与余烬醒时合作",
       body: "我们欢迎理解小团队与长线作品的发行、平台、内容创作者和媒体朋友联系。",
       status: "4 个项目 / 《灰烬竞技场》已发售 / 《灯火计划》垂直切片计划 2026 Q4",
       contact: "联系我们",

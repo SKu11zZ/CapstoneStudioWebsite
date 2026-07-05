@@ -21,11 +21,11 @@
   display: flex;
   flex-direction: column;
   gap: 14px;
-  max-width: 720px;
+  max-width: 980px;
 }
 
 .section-header.is-wide {
-  max-width: 860px;
+  max-width: 1080px;
 }
 
 .eyebrow {
@@ -47,16 +47,23 @@
 }
 
 .display-title {
-  font-size: clamp(56px, 7.4vw, 112px);
+  font-size: clamp(68px, 8vw, 104px);
   line-height: 0.98;
   text-align: center;
-  text-wrap: balance;
+  text-wrap: pretty;
 }
 
 .section-title {
-  font-size: clamp(42px, 4.3vw, 66px);
-  line-height: 1.05;
-  text-wrap: balance;
+  font-size: clamp(44px, 4.4vw, 62px);
+  line-height: 1.03;
+  text-wrap: pretty;
+}
+
+@media (min-width: 761px) {
+  .display-title,
+  .section-title {
+    white-space: nowrap;
+  }
 }
 
 .body-copy {

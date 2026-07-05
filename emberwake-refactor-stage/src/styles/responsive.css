@@ -26,6 +26,36 @@
     margin-top: 24px;
     transform: none;
   }
+
+  .slogan-grid,
+  .roadmap-heading {
+    grid-template-columns: 1fr;
+  }
+
+  .roadmap-device {
+    width: fit-content;
+  }
+
+  .roadmap-track {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .slogan-beats {
+    grid-template-columns: 1fr;
+  }
+
+  .page-progress {
+    left: 12px;
+  }
+
+  .page-progress-label {
+    display: none;
+  }
+
+  .page-progress {
+    grid-template-columns: 3px auto;
+    padding-right: 8px;
+  }
 }
 
 @media (max-width: 760px) {
@@ -39,8 +69,17 @@
   }
 
   .brand-text {
-    font-size: 12px;
-    letter-spacing: 0.22em;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+  }
+
+  .brand-seal {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-code {
+    font-size: 8px;
   }
 
   .language-toggle button {
@@ -58,8 +97,24 @@
     padding-top: 116px;
   }
 
+  .page-progress {
+    top: calc(var(--header-height) + 10px);
+    left: 8px;
+    gap: 7px;
+    padding: 9px 7px;
+  }
+
+  .page-progress-track {
+    min-height: 132px;
+  }
+
+  .page-progress-link {
+    min-height: 15px;
+  }
+
   .display-title {
-    font-size: clamp(48px, 16vw, 74px);
+    font-size: 58px;
+    white-space: normal;
   }
 
   .hero-subtitle {
@@ -98,12 +153,42 @@
   .games-grid,
   .media-grid,
   .news-grid,
-  .partner-grid {
+  .partner-grid,
+  .roadmap-track {
     grid-template-columns: 1fr;
   }
 
   .section-title {
-    font-size: clamp(36px, 12vw, 52px);
+    font-size: 42px;
+    white-space: normal;
+  }
+
+  .slogan-card {
+    min-height: 0;
+    padding: 28px 22px;
+  }
+
+  .slogan-card h2 {
+    font-size: 34px;
+  }
+
+  .roadmap-device {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .roadmap-track::before {
+    top: 0;
+    bottom: 0;
+    left: 28px;
+    right: auto;
+    width: 1px;
+    height: auto;
+    background: linear-gradient(180deg, transparent, rgba(224, 179, 106, 0.48), transparent);
+  }
+
+  .roadmap-item {
+    min-height: auto;
   }
 
   .game-card {

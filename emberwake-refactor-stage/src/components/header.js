@@ -13,8 +13,13 @@
     return `
       <header class="site-header">
         <a class="brand" href="#top" data-menu-close aria-label="${ui.escapeHtml(t.brand)}">
-          <span class="brand-mark" aria-hidden="true"></span>
-          <span class="brand-text">${ui.escapeHtml(t.brand)}</span>
+          <span class="brand-seal" aria-hidden="true">
+            ${ui.icon("safety-certificate", "brand-seal-icon")}
+          </span>
+          <span class="brand-lockup">
+            <span class="brand-code">FA-06</span>
+            <span class="brand-text">${ui.escapeHtml(t.brand)}</span>
+          </span>
         </a>
         <nav class="main-nav" aria-label="${ui.escapeHtml(t.a11y.nav)}">
           ${navLinks(ctx, false)}

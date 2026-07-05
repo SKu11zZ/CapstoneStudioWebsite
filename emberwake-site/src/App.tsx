@@ -1,5 +1,6 @@
 import { Header } from "./components/layout/Header";
 import { Footer } from "./components/layout/Footer";
+import { PageProgress } from "./components/layout/PageProgress";
 import { Hero } from "./components/sections/Hero";
 import { FeaturedGame } from "./components/sections/FeaturedGame";
 import { GamesSection } from "./components/sections/GamesSection";
@@ -22,6 +23,7 @@ export function App() {
   return (
     <>
       <Header lang={lang} onLangChange={setLang} content={t} />
+      <PageProgress content={t} />
       <main>
         <Hero content={t} />
         <FeaturedGame content={t} />

@@ -104,3 +104,18 @@
   -webkit-mask-image: url("../../assets/icons/laptop-check-white.png");
   mask-image: url("../../assets/icons/laptop-check-white.png");
 }
+
+.icon.is-safety-certificate {
+  -webkit-mask-image: url("../../assets/icons/safety-certificate-white.png");
+  mask-image: url("../../assets/icons/safety-certificate-white.png");
+}
+
+.icon.is-settings {
+  -webkit-mask-image: url("../../assets/icons/settings-white.png");
+  mask-image: url("../../assets/icons/settings-white.png");
+}
+
+.icon.is-supervise {
+  -webkit-mask-image: url("../../assets/icons/supervise-white.png");
+  mask-image: url("../../assets/icons/supervise-white.png");
+}

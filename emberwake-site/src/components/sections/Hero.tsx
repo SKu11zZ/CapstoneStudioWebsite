@@ -1,7 +1,6 @@
 import type { SiteContent } from "../../types/site";
 import { links } from "../../data/links";
 import { ButtonLink } from "../ui/ButtonLink";
-import { CinematicFrame } from "../ui/CinematicFrame";
 import { EmberField } from "../ui/EmberField";
 
 type HeroProps = {
@@ -33,14 +32,6 @@ export function Hero({ content }: HeroProps) {
             </ButtonLink>
           </div>
         </div>
-        <aside className="hero__dossier" aria-label={content.hero.featuredTitle}>
-          <CinematicFrame variant="hero" label={content.hero.featuredTitle} meta={content.hero.featuredTag} isVideo />
-          <div className="hero__meta">
-            {content.hero.featuredMeta.map((item) => (
-              <span key={item}>{item}</span>
-            ))}
-          </div>
-        </aside>
       </div>
       <a className="scroll-cue" href="#featured">
         {content.hero.scroll}

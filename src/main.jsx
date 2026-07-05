@@ -154,26 +154,90 @@ const teamMembers = [
   }
 ];
 
+const roadmapItems = [
+  {
+    phase: "01",
+    window: localized("Now", "现在"),
+    status: localized("Playable Core", "核心可玩"),
+    title: localized("Vertical Slice", "垂直切片"),
+    body: localized(
+      "Finish the first 25-minute loop: fog reading, permanent light marks, traversal tools, and one reactive creature route.",
+      "完成第一段 25 分钟循环：读雾、永久灯火标记、路线工具，以及一条会回应玩家行为的生灵路线。"
+    )
+  },
+  {
+    phase: "02",
+    window: localized("Q3 2026", "2026 Q3"),
+    status: localized("Reveal Materials", "首曝素材"),
+    title: localized("Trailer + Steam Page", "预告片 + Steam 页面"),
+    body: localized(
+      "Replace placeholder frames with capture, prepare the press kit, and open wishlist traffic around a restrained first trailer.",
+      "用真实录屏替换占位画面，准备媒体包，并围绕克制的首曝预告开启愿望单入口。"
+    )
+  },
+  {
+    phase: "03",
+    window: localized("Q4 2026", "2026 Q4"),
+    status: localized("Closed Test", "封闭测试"),
+    title: localized("Community Playtest", "社区试玩"),
+    body: localized(
+      "Invite a small group to test readability, route memory, controller feel, and the emotional temperature of the valley.",
+      "邀请小范围玩家测试可读性、路线记忆、手柄手感，以及山谷的情绪温度。"
+    )
+  },
+  {
+    phase: "04",
+    window: localized("2027", "2027"),
+    status: localized("Public Demo", "公开 Demo"),
+    title: localized("Festival Demo", "节展 Demo"),
+    body: localized(
+      "Ship a polished demo with one complete region, localized subtitles, creator-friendly footage rules, and a compact feedback loop.",
+      "发布一个包含完整区域的精修 Demo：本地化字幕、创作者友好的录制规则，以及简洁反馈通道。"
+    )
+  },
+  {
+    phase: "05",
+    window: localized("TBA", "待定"),
+    status: localized("Launch Window", "上线窗口"),
+    title: localized("Release Plan", "发行计划"),
+    body: localized(
+      "Lock scope around the strongest route-building and memory systems, then choose launch timing with partners and community data.",
+      "围绕最有力的搭路与记忆系统锁定范围，再结合合作方与社区反馈决定上线节奏。"
+    )
+  }
+];
+
 const translations = {
   en: {
     studioName: "Mistvale",
+    brandSubline: "cinematic indie games",
     nav: {
       top: "Featured",
       games: "Games",
       studio: "Studio",
       media: "Media",
+      roadmap: "Roadmap",
       devlog: "Devlog",
       partners: "Partners"
     },
     aria: {
       openMenu: "Open navigation menu",
       closeMenu: "Close navigation menu",
-      language: "Change language"
+      language: "Change language",
+      progress: "Quick section progress"
     },
     hero: {
       kicker: "Mistvale Studio",
-      title: "We make games about finding the path through fog.",
+      title: "Games for fogbound worlds",
       copy: "A small independent studio building luminous, tactile worlds where maps are incomplete, places react, and every mark you leave changes the way back.",
+      sloganPrefix: "Studio Slogan",
+      slogan: "Follow the fog Leave a light Build the way back",
+      slateLabel: "Production slate",
+      slate: [
+        { label: "Project", value: "Lumenfall" },
+        { label: "Format", value: "PC / Steam" },
+        { label: "Status", value: "Vertical Slice" }
+      ],
       featured: "Now Featured",
       primary: "Wishlist Lumenfall",
       secondary: "Explore All Games",
@@ -188,33 +252,38 @@ const translations = {
       },
       games: {
         eyebrow: "Games",
-        title: "Several doors, one studio.",
-        copy: "A compact catalog for released games, prototypes, and projects still being shaped."
+        title: "Four doors, one studio",
+        copy: "Featured, in-development, prototype, and released projects"
       },
       identity: {
         eyebrow: "Studio",
-        title: "Six people building places that feel watched, handmade, and worth returning to.",
-        copy: "The studio is small on purpose: design, engineering, art, audio, production, and community stay close enough that every prototype keeps its tone."
+        title: "Six makers, one atmosphere",
+        copy: "A small team keeping design, code, art, audio, production, and community close"
       },
       media: {
         eyebrow: "Frames",
-        title: "Replaceable slots for trailers, screenshots, and moving tests.",
-        copy: "The current frames are designed as finished placeholders, ready to be swapped with real game footage."
+        title: "Screenshots and footage",
+        copy: "Trailer, screenshot, and motion-test slots for each project"
+      },
+      roadmap: {
+        eyebrow: "Roadmap",
+        title: "Production roadmap",
+        copy: "Prove the core, capture real footage, test quietly, then reveal the playable build"
       },
       news: {
         eyebrow: "Devlog",
-        title: "Notes from the workshop.",
-        copy: "Short updates about builds, experiments, and the choices that shape each game."
+        title: "Workshop notes",
+        copy: "Build progress, system experiments, and key production choices"
       },
       community: {
         eyebrow: "Community",
-        title: "Watch these worlds rise up close.",
-        copy: "Join Discord for test builds, polls, weekly progress, and quiet first looks before the public announcements."
+        title: "Join the build",
+        copy: "Discord playtests, polls, weekly progress, and quiet first looks"
       },
       partners: {
         eyebrow: "Partners / Press",
-        title: "Clear materials for people helping games find players.",
-        copy: "Mistvale Studio is preparing a multi-project catalog led by Lumenfall, with room for publishing, platform, creator, and press conversations."
+        title: "Press and partners",
+        copy: "A clear contact point for publishing, platform, creator, and press conversations"
       }
     },
     labels: {
@@ -267,23 +336,34 @@ const translations = {
   },
   zh: {
     studioName: "MISTVALE",
+    brandSubline: "电影感独立游戏",
     nav: {
       top: "主推",
       games: "游戏",
       studio: "工作室",
       media: "画面",
+      roadmap: "路线图",
       devlog: "开发日志",
       partners: "合作"
     },
     aria: {
       openMenu: "打开导航菜单",
       closeMenu: "关闭导航菜单",
-      language: "切换语言"
+      language: "切换语言",
+      progress: "快速定位进度"
     },
     hero: {
       kicker: "雾谷工作室",
-      title: "我们做关于穿过迷雾的游戏。",
+      title: "我们做穿过迷雾的游戏",
       copy: "一个小型独立工作室，专注制作有微光、有触感、也有未知方向的世界。地图不会一开始就完整，地点会回应你，而你留下的每个标记都会改变回来的路。",
+      sloganPrefix: "工作室标语",
+      slogan: "跟随雾 留下光 把回路搭出来",
+      slateLabel: "项目制片表",
+      slate: [
+        { label: "项目", value: "坠光之境" },
+        { label: "平台", value: "PC / Steam" },
+        { label: "状态", value: "垂直切片" }
+      ],
       featured: "当前主推",
       primary: "愿望单《坠光之境》",
       secondary: "浏览全部游戏",
@@ -298,33 +378,38 @@ const translations = {
       },
       games: {
         eyebrow: "游戏",
-        title: "几扇门，同一个工作室。",
-        copy: "这里会放下已发布、开发中和原型阶段的作品。现在是占位，但结构已经准备好替换真实封面和链接。"
+        title: "四款游戏 同一座雾谷",
+        copy: "主推、开发中、原型与已发布作品"
       },
       identity: {
         eyebrow: "工作室",
-        title: "6 个人，搭建那些像被注视着、被手工做出来、值得回去看的地方。",
-        copy: "团队刻意保持很小：设计、工程、美术、音频、制作和社区彼此贴得足够近，让每个原型都保留同一种气质。"
+        title: "6 个人 同一种气质",
+        copy: "小团队保持近距离协作，让每个原型都有统一气质"
       },
       media: {
         eyebrow: "画面",
-        title: "给预告片、截图和动态测试留好的位置。",
-        copy: "当前画面是完成度更高的占位框，之后可以直接换成真实游戏截图、GIF 或预告片。"
+        title: "截图与影像",
+        copy: "预告片、截图和动效测试都会放在这里"
+      },
+      roadmap: {
+        eyebrow: "路线图",
+        title: "制作路线图",
+        copy: "先验证核心，再测试、首曝、公开 Demo"
       },
       news: {
         eyebrow: "开发日志",
-        title: "从工作间里发出的笔记。",
-        copy: "短一些、真实一些的更新：构建进度、实验结果，以及每款游戏正在被什么选择塑形。"
+        title: "工作间笔记",
+        copy: "构建进度、系统实验和关键选择"
       },
       community: {
         eyebrow: "社区入口",
-        title: "亲眼看着这些世界被搭起来。",
-        copy: "加入 Discord：抢先试玩测试版本、投票决定我们接下来做什么、每两周看到真实进度。潜水也欢迎，所有消息都最先发在那里。"
+        title: "加入建造现场",
+        copy: "加入 Discord，参与试玩、投票和每周进度"
       },
       partners: {
         eyebrow: "合作 / 媒体",
-        title: "给帮助游戏找到玩家的人，准备清楚材料。",
-        copy: "雾谷工作室正在准备一个多项目作品集，由《坠光之境》领衔，也欢迎发行、平台、内容创作者和媒体方向的沟通。"
+        title: "媒体与合作",
+        copy: "给发行、平台、媒体和创作者准备的联系入口"
       }
     },
     labels: {
@@ -382,6 +467,7 @@ const navLinks = [
   { href: "#games", key: "games" },
   { href: "#studio", key: "studio" },
   { href: "#media", key: "media" },
+  { href: "#roadmap", key: "roadmap" },
   { href: "#devlog", key: "devlog" },
   { href: "#partners", key: "partners" }
 ];
@@ -427,6 +513,21 @@ function StatusPills({ status, lang }) {
   );
 }
 
+function BrandLockup({ t, onClick }) {
+  return (
+    <a className="brand brand-lockup" href="#top" onClick={onClick}>
+      <span className="brand-mark">
+        <Icon name="brand" />
+      </span>
+      <span className="brand-copy">
+        <strong>{t.studioName}</strong>
+        <small>{t.brandSubline}</small>
+      </span>
+      <span className="brand-code">MV-01</span>
+    </a>
+  );
+}
+
 function VisualFrame({ variant = "lantern", label, large = false, play = false }) {
   return (
     <div className={`visual-frame ${variant} ${large ? "large" : ""}`} aria-label={label}>
@@ -452,12 +553,7 @@ function Header({ lang, setLang, t }) {
   const [open, setOpen] = useState(false);
   return (
     <header className="site-header">
-      <a className="brand" href="#top" onClick={() => setOpen(false)}>
-        <span className="brand-mark">
-          <Icon name="brand" />
-        </span>
-        <span>{t.studioName}</span>
-      </a>
+      <BrandLockup t={t} onClick={() => setOpen(false)} />
       <nav className="desktop-nav" aria-label="Primary">
         {navLinks.map((link) => (
           <a href={link.href} key={link.key}>
@@ -489,6 +585,60 @@ function Header({ lang, setLang, t }) {
   );
 }
 
+function QuickProgress({ t }) {
+  const [activeHref, setActiveHref] = useState(navLinks[0].href);
+  const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    function updateProgress() {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const nextProgress = scrollable > 0 ? window.scrollY / scrollable : 0;
+      const activationLine = window.innerHeight * 0.38;
+      let nextActive = navLinks[0].href;
+
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.href);
+        if (section && section.getBoundingClientRect().top <= activationLine) {
+          nextActive = link.href;
+        }
+      });
+
+      setActiveHref(nextActive);
+      setScrollProgress(Math.min(1, Math.max(0, nextProgress)));
+    }
+
+    updateProgress();
+    window.addEventListener("scroll", updateProgress, { passive: true });
+    window.addEventListener("resize", updateProgress);
+    return () => {
+      window.removeEventListener("scroll", updateProgress);
+      window.removeEventListener("resize", updateProgress);
+    };
+  }, []);
+
+  return (
+    <nav className="quick-progress" aria-label={t.aria.progress} style={{ "--scroll-progress": scrollProgress }}>
+      <span className="quick-progress-track" aria-hidden="true">
+        <span />
+      </span>
+      <div className="quick-progress-links">
+        {navLinks.map((link, index) => (
+          <a
+            className={activeHref === link.href ? "active" : ""}
+            href={link.href}
+            key={link.href}
+            title={t.nav[link.key]}
+            aria-label={t.nav[link.key]}
+          >
+            <span className="quick-index">{String(index + 1).padStart(2, "0")}</span>
+            <span className="quick-label">{t.nav[link.key]}</span>
+          </a>
+        ))}
+      </div>
+    </nav>
+  );
+}
+
 function Hero({ t, lang, featuredGame }) {
   return (
     <section className="hero" id="top">
@@ -507,6 +657,18 @@ function Hero({ t, lang, featuredGame }) {
         <p className="eyebrow">{t.hero.kicker}</p>
         <h1>{t.hero.title}</h1>
         <p className="hero-lede">{t.hero.copy}</p>
+        <div className="hero-slogan">
+          <span>{t.hero.sloganPrefix}</span>
+          <strong>{t.hero.slogan}</strong>
+        </div>
+        <div className="production-strip" aria-label={t.hero.slateLabel}>
+          {t.hero.slate.map((item) => (
+            <span key={item.label}>
+              <small>{item.label}</small>
+              <strong>{item.value}</strong>
+            </span>
+          ))}
+        </div>
         <a className="featured-chip" href="#featured">
           <small>{t.hero.featured}</small>
           <strong>{featuredGame.title[lang]}</strong>
@@ -578,7 +740,7 @@ function FeaturedGame({ t, lang, game }) {
 
 function GameCard({ game, lang, t }) {
   return (
-    <article className={`game-card ${game.featured ? "is-featured" : ""}`}>
+    <article className="game-card">
       <VisualFrame variant={game.media} label={t.labels.cover} />
       <div className="game-card-body">
         <StatusPills status={game.status} lang={lang} />
@@ -619,14 +781,6 @@ function StudioSection({ t, lang }) {
   return (
     <section className="section studio-section" id="studio">
       <SectionHeader {...t.section.identity} center />
-      <div className="studio-principles">
-        {t.identityPoints.map((point, index) => (
-          <p key={point}>
-            <span>0{index + 1}</span>
-            {point}
-          </p>
-        ))}
-      </div>
       <div className="team-grid">
         {teamMembers.map((member, index) => (
           <article className="team-card" key={member.id}>
@@ -678,6 +832,31 @@ function MediaSection({ t, lang }) {
             </article>
           );
         })}
+      </div>
+    </section>
+  );
+}
+
+function RoadmapSection({ t, lang }) {
+  return (
+    <section className="section roadmap-section" id="roadmap">
+      <SectionHeader {...t.section.roadmap} center />
+      <div className="roadmap-shell">
+        {roadmapItems.map((item) => (
+          <article className="roadmap-card" key={item.phase}>
+            <div className="roadmap-phase">
+              <span>{item.phase}</span>
+            </div>
+            <div className="roadmap-body">
+              <div className="roadmap-meta">
+                <span>{item.window[lang]}</span>
+                <strong>{item.status[lang]}</strong>
+              </div>
+              <h3>{item.title[lang]}</h3>
+              <p>{item.body[lang]}</p>
+            </div>
+          </article>
+        ))}
       </div>
     </section>
   );
@@ -764,12 +943,7 @@ function PartnersSection({ t }) {
 function Footer({ t, lang, setLang }) {
   return (
     <footer className="footer">
-      <a className="brand" href="#top">
-        <span className="brand-mark">
-          <Icon name="brand" />
-        </span>
-        <span>{t.studioName}</span>
-      </a>
+      <BrandLockup t={t} />
       <div className="footer-links">
         {t.footerLinks.map((link) => (
           <a href="#" key={link}>
@@ -807,12 +981,14 @@ function App() {
   return (
     <div className="interactive-shell" onPointerMove={handlePointerMove}>
       <Header lang={lang} setLang={setLang} t={t} />
+      <QuickProgress t={t} />
       <main>
         <Hero t={t} lang={lang} featuredGame={featuredGame} />
         <FeaturedGame t={t} lang={lang} game={featuredGame} />
         <GamesSection t={t} lang={lang} />
         <StudioSection t={t} lang={lang} />
         <MediaSection t={t} lang={lang} />
+        <RoadmapSection t={t} lang={lang} />
         <NewsSection t={t} />
         <CommunitySection t={t} />
         <PartnersSection t={t} />

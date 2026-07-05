@@ -1,5 +1,7 @@
+import type { LinkConfig } from "../types/site";
+
 // TODO: Replace placeholder URLs when official channels are ready.
-export const links = {
+export const links: LinkConfig = {
   steamUrl: "#",
   discordUrl: "#",
   youtubeUrl: "#",
