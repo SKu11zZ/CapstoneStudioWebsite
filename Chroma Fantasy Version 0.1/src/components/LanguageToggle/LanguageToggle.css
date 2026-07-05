@@ -1,0 +1,19 @@
+.language-toggle {
+  min-height: 42px;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  padding: 0 0.9rem;
+  background: rgba(255, 250, 240, 0.64);
+  color: var(--color-text);
+  font: 700 0.78rem/1 var(--font-sans);
+  letter-spacing: 0;
+  cursor: pointer;
+  transition: background 180ms ease, border-color 180ms ease, transform 180ms ease;
+}
+
+.language-toggle:hover,
+.language-toggle:focus-visible {
+  background: rgba(255, 248, 232, 0.92);
+  border-color: rgba(181, 138, 85, 0.55);
+  transform: translateY(-1px);
+}

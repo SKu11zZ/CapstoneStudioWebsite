@@ -1,0 +1,24 @@
+.games-grid-section {
+  background:
+    linear-gradient(180deg, rgba(235, 226, 215, 0.82), rgba(244, 239, 232, 0.92)),
+    var(--color-bg-soft);
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+@media (max-width: 1020px) {
+  .games-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .games-grid {
+    grid-template-columns: 1fr;
+  }
+}

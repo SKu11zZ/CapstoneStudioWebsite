@@ -1,0 +1,90 @@
+.playtest {
+  background:
+    linear-gradient(135deg, rgba(159, 181, 200, 0.2), rgba(244, 239, 232, 0.88) 45%, rgba(215, 185, 138, 0.24)),
+    var(--color-bg);
+}
+
+.playtest__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(320px, 0.68fr);
+  gap: clamp(1.2rem, 4vw, 4rem);
+  align-items: start;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-card);
+  background: rgba(255, 250, 240, 0.58);
+  box-shadow: var(--shadow-soft);
+  padding: clamp(1rem, 4vw, 2.5rem);
+}
+
+.playtest__copy p {
+  color: var(--color-muted);
+  line-height: 1.84;
+}
+
+.playtest-focus {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+
+.playtest-focus span {
+  border: 1px solid rgba(159, 181, 200, 0.4);
+  border-radius: 999px;
+  background: rgba(159, 181, 200, 0.12);
+  color: #596b78;
+  font-size: 0.78rem;
+  font-weight: 800;
+  padding: 0.5rem 0.7rem;
+}
+
+.playtest__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.3rem;
+}
+
+.playtest-form {
+  display: grid;
+  gap: 0.75rem;
+  border: 1px solid rgba(96, 78, 68, 0.14);
+  border-radius: var(--radius-card);
+  background: rgba(255, 248, 232, 0.82);
+  padding: 1rem;
+}
+
+.playtest-form label {
+  display: grid;
+  gap: 0.35rem;
+  color: var(--color-text);
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.playtest-form input,
+.playtest-form textarea {
+  width: 100%;
+  border: 1px solid rgba(96, 78, 68, 0.18);
+  border-radius: var(--radius-card);
+  background: rgba(255, 255, 255, 0.58);
+  color: var(--color-text);
+  font: 500 0.95rem/1.5 var(--font-sans);
+  padding: 0.75rem 0.85rem;
+}
+
+.playtest-form textarea {
+  resize: vertical;
+}
+
+.playtest-form__success {
+  margin: 0;
+  color: #61744f;
+  font-weight: 800;
+}
+
+@media (max-width: 860px) {
+  .playtest__inner {
+    grid-template-columns: 1fr;
+  }
+}

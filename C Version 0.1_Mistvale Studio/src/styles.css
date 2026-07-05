@@ -40,6 +40,9 @@
   --tilt-y: 0;
   --font-body: "Mistvale Body", sans-serif;
   --font-display: "Mistvale Display", "Mistvale CJK Serif", serif;
+  --image-hero-valley: url("/assets/generated/mistvale-hero-valley.png");
+  --image-industrial-plate: url("/assets/generated/mistvale-industrial-plate.png");
+  --image-memory-fog: url("/assets/generated/mistvale-memory-fog.png");
   font-family: var(--font-body);
 }
 
@@ -388,6 +391,10 @@ p {
   padding: 96px clamp(18px, 5vw, 72px) 58px;
   overflow: hidden;
   border-bottom: 1px solid rgba(228, 188, 119, 0.1);
+  background:
+    linear-gradient(180deg, rgba(5, 5, 4, 0.46), rgba(5, 5, 4, 0.5) 48%, rgba(5, 5, 4, 0.88)),
+    radial-gradient(circle at 50% 42%, rgba(228, 162, 75, 0.16), transparent 28rem),
+    var(--image-hero-valley) center / cover no-repeat;
   perspective: 900px;
 }
 
@@ -1302,6 +1309,15 @@ h1 {
   gap: 18px;
 }
 
+.media-section {
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(7, 7, 6, 0.82), rgba(7, 7, 6, 0.66) 48%, rgba(7, 7, 6, 0.9)),
+    radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(103, 184, 170, 0.1), transparent 24rem),
+    var(--image-memory-fog) center / cover no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(228, 188, 119, 0.06);
+}
+
 .media-card {
   overflow: hidden;
 }
@@ -1328,8 +1344,9 @@ h1 {
   border-top: 1px solid rgba(228, 188, 119, 0.1);
   border-bottom: 1px solid rgba(228, 188, 119, 0.1);
   background:
+    linear-gradient(180deg, rgba(7, 7, 6, 0.78), rgba(7, 7, 6, 0.88)),
     radial-gradient(circle at calc(100% - var(--pointer-x)) var(--pointer-y), rgba(232, 91, 63, 0.06), transparent 22rem),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 58%);
+    var(--image-industrial-plate) center / cover no-repeat;
 }
 
 .roadmap-shell {
@@ -1471,6 +1488,15 @@ h1 {
   line-height: 1.7;
 }
 
+.news-section {
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(7, 7, 6, 0.88), rgba(7, 7, 6, 0.72) 45%, rgba(7, 7, 6, 0.9)),
+    radial-gradient(circle at 18% 20%, rgba(228, 162, 75, 0.1), transparent 22rem),
+    var(--image-industrial-plate) center / cover no-repeat;
+  box-shadow: inset 0 0 0 1px rgba(228, 188, 119, 0.05);
+}
+
 .community-section {
   position: relative;
   display: grid;
@@ -1480,8 +1506,10 @@ h1 {
   border-top: 1px solid rgba(228, 188, 119, 0.1);
   border-bottom: 1px solid rgba(228, 188, 119, 0.1);
   background:
+    linear-gradient(180deg, rgba(7, 7, 6, 0.9), rgba(7, 7, 6, 0.66) 46%, rgba(7, 7, 6, 0.9)),
     radial-gradient(circle at var(--pointer-x) var(--pointer-y), rgba(228, 162, 75, 0.11), transparent 22rem),
-    radial-gradient(circle at 50% 52%, rgba(103, 184, 170, 0.14), transparent 28rem);
+    radial-gradient(circle at 50% 52%, rgba(103, 184, 170, 0.14), transparent 28rem),
+    var(--image-memory-fog) center / cover no-repeat;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -1,0 +1,20 @@
+:root {
+  --color-bg: #f4efe8;
+  --color-bg-soft: #ebe2d7;
+  --color-panel: rgba(255, 250, 240, 0.72);
+  --color-panel-strong: rgba(255, 248, 232, 0.9);
+  --color-text: #2f2a2f;
+  --color-muted: #756f78;
+  --color-accent: #b58a55;
+  --color-accent-soft: #d7b98a;
+  --color-blue-mist: #9fb5c8;
+  --color-mauve: #a78f9e;
+  --color-green-ash: #9aa68d;
+  --color-border: rgba(96, 78, 68, 0.18);
+  --shadow-soft: 0 24px 80px rgba(70, 55, 45, 0.16);
+  --radius-card: 26px;
+  --font-sans: "SongGu", "HarmonyOS Sans SC", "Microsoft YaHei", sans-serif;
+  --font-latin: "Urbanist", "Inter", "Segoe UI", sans-serif;
+  --font-display: "Newsreader Local", "SongGu", Georgia, serif;
+  --section-y: clamp(4.2rem, 8vw, 7rem);
+}
