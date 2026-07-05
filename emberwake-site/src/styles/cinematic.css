@@ -1,0 +1,125 @@
+.cinematic-frame {
+  position: relative;
+  isolation: isolate;
+  min-height: 0;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border: 1px solid rgba(239, 232, 220, 0.16);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(135deg, rgba(232, 162, 92, 0.18) 0 1px, transparent 1px 28%),
+    linear-gradient(90deg, rgba(110, 135, 144, 0.14), transparent 34%),
+    linear-gradient(180deg, #15191d, #070604 78%);
+  box-shadow: inset 0 0 80px rgba(0, 0, 0, 0.55), var(--shadow-glow);
+}
+
+.cinematic-frame--hero {
+  min-height: 0;
+  height: min(27vw, 310px);
+  max-height: 310px;
+  width: 100%;
+}
+
+.cinematic-frame--poster {
+  aspect-ratio: 16 / 10;
+  min-height: 0;
+  height: 170px;
+  border-radius: 0;
+  border-width: 0 0 1px;
+}
+
+.cinematic-frame--video,
+.cinematic-frame--image {
+  height: 205px;
+}
+
+.cinematic-frame::before,
+.cinematic-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cinematic-frame::before {
+  z-index: -1;
+  background:
+    linear-gradient(90deg, transparent 0 42%, rgba(232, 162, 92, 0.08) 50%, transparent 58%),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.018) 0 1px, transparent 1px 4px);
+  opacity: 0.68;
+}
+
+.cinematic-frame::after {
+  background: radial-gradient(ellipse at center, transparent 0 42%, rgba(0, 0, 0, 0.64) 100%);
+}
+
+.cinematic-frame__light {
+  position: absolute;
+  left: 50%;
+  bottom: 18%;
+  width: min(42%, 11rem);
+  aspect-ratio: 1;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, rgba(248, 183, 100, 0.42), transparent);
+  filter: blur(3px);
+  transform: translateX(-50%);
+  animation: lightPulse 6s ease-in-out infinite;
+}
+
+.cinematic-frame__corners {
+  position: absolute;
+  inset: 0.75rem;
+  border: 1px solid rgba(239, 232, 220, 0.13);
+  mask:
+    linear-gradient(#000 0 0) top left / 2.6rem 2.6rem no-repeat,
+    linear-gradient(#000 0 0) top right / 2.6rem 2.6rem no-repeat,
+    linear-gradient(#000 0 0) bottom left / 2.6rem 2.6rem no-repeat,
+    linear-gradient(#000 0 0) bottom right / 2.6rem 2.6rem no-repeat;
+}
+
+.cinematic-frame__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 3.35rem;
+  height: 3.35rem;
+  border: 1px solid rgba(232, 162, 92, 0.7);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  background: url("/icons/play-circle-white.png") center / 2.35rem 2.35rem no-repeat;
+}
+
+.cinematic-frame__play::after {
+  content: none;
+}
+
+.cinematic-frame__text {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 0.8rem;
+  z-index: 1;
+  display: grid;
+  gap: 0.28rem;
+  color: var(--color-text);
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.cinematic-frame__text span {
+  font-size: 0.72rem;
+}
+
+.cinematic-frame__text small {
+  color: var(--color-faint);
+  font-size: 0.62rem;
+}
+
+@media (max-width: 900px) {
+  .cinematic-frame--hero,
+  .cinematic-frame--video,
+  .cinematic-frame--image {
+    height: auto;
+  }
+}

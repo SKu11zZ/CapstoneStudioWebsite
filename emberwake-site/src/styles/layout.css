@@ -1,0 +1,96 @@
+.section-band {
+  position: relative;
+  padding: clamp(3rem, 6vw, 5.5rem) clamp(1rem, 5vw, 3rem);
+  border-top: 1px solid rgba(239, 232, 220, 0.07);
+}
+
+.section-inner,
+.section-grid,
+.hero__frame {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(320px, 1.1fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+  align-items: start;
+}
+
+.section-grid--featured {
+  grid-template-columns: minmax(360px, 0.78fr) minmax(520px, 1.22fr);
+  align-items: center;
+}
+
+.section-heading {
+  max-width: 680px;
+  margin-bottom: clamp(1.25rem, 3vw, 2rem);
+}
+
+.section-heading--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.section-heading__body {
+  margin: 0.7rem 0 0;
+  color: var(--color-muted);
+  line-height: 1.65;
+  font-size: 0.96rem;
+}
+
+.section-row-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.section-row-heading .section-heading {
+  margin: 0;
+}
+
+.section-row-heading > a {
+  color: var(--color-accent);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.card-grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+.card-grid--games {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+.card-grid--media,
+.card-grid--news {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+}
+
+.button-row,
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .section-grid,
+  .section-grid--featured {
+    grid-template-columns: 1fr;
+  }
+
+  .section-row-heading {
+    align-items: start;
+    flex-direction: column;
+  }
+}

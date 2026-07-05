@@ -1,0 +1,137 @@
+@media (max-width: 1080px) {
+  .site-header {
+    grid-template-columns: 1fr auto;
+  }
+
+  .main-nav {
+    display: none;
+  }
+
+  .menu-button {
+    display: inline-grid;
+    place-items: center;
+  }
+
+  .grid-2,
+  .games-grid,
+  .media-grid,
+  .news-grid,
+  .partner-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .hero-system {
+    position: static;
+    width: min(100%, 620px);
+    margin-top: 24px;
+    transform: none;
+  }
+}
+
+@media (max-width: 760px) {
+  :root {
+    --header-height: 62px;
+  }
+
+  .site-header {
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+
+  .brand-text {
+    font-size: 12px;
+    letter-spacing: 0.22em;
+  }
+
+  .language-toggle button {
+    min-width: 38px;
+    padding-right: 10px;
+    padding-left: 10px;
+  }
+
+  .section {
+    padding: 72px 18px;
+  }
+
+  .hero {
+    min-height: 100svh;
+    padding-top: 116px;
+  }
+
+  .display-title {
+    font-size: clamp(48px, 16vw, 74px);
+  }
+
+  .hero-subtitle {
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .featured-pill {
+    max-width: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .hero-actions,
+  .cluster {
+    width: 100%;
+  }
+
+  .hero-stage {
+    min-height: auto;
+  }
+
+  .hero-stats,
+  .case-file {
+    grid-template-columns: 1fr;
+    border-radius: 14px;
+  }
+
+  .hero-actions .button,
+  .featured-copy .button,
+  .community .button {
+    width: 100%;
+  }
+
+  .grid-2,
+  .games-grid,
+  .media-grid,
+  .news-grid,
+  .partner-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 12vw, 52px);
+  }
+
+  .game-card {
+    min-height: auto;
+  }
+
+  .news-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+  }
+
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

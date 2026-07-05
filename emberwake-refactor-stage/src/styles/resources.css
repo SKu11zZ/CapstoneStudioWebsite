@@ -1,0 +1,106 @@
+@font-face {
+  font-family: "Foganchor Serif SC";
+  src: url("../../assets/fonts/NotoSerifSC-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Foganchor Sans SC";
+  src: url("../../assets/fonts/HarmonyOS_Sans_SC.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Foganchor Latin Serif";
+  src: url("../../assets/fonts/Newsreader-VariableFont_opsz,wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 900;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Foganchor Tech";
+  src: url("../../assets/fonts/Oxanium-VariableFont_wght.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 200 800;
+  font-display: swap;
+}
+
+.icon {
+  display: inline-block;
+  width: 1.05em;
+  height: 1.05em;
+  flex: 0 0 auto;
+  background: currentColor;
+  vertical-align: -0.15em;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+}
+
+.icon.is-play {
+  -webkit-mask-image: url("../../assets/icons/play-circle-white.png");
+  mask-image: url("../../assets/icons/play-circle-white.png");
+}
+
+.icon.is-menu {
+  -webkit-mask-image: url("../../assets/icons/menu-white.png");
+  mask-image: url("../../assets/icons/menu-white.png");
+}
+
+.icon.is-close {
+  -webkit-mask-image: url("../../assets/icons/close-white.png");
+  mask-image: url("../../assets/icons/close-white.png");
+}
+
+.icon.is-return {
+  -webkit-mask-image: url("../../assets/icons/return-arrow-white.png");
+  mask-image: url("../../assets/icons/return-arrow-white.png");
+}
+
+.icon.is-expand {
+  -webkit-mask-image: url("../../assets/icons/expand-white.png");
+  mask-image: url("../../assets/icons/expand-white.png");
+}
+
+.icon.is-link {
+  -webkit-mask-image: url("../../assets/icons/link-white.png");
+  mask-image: url("../../assets/icons/link-white.png");
+}
+
+.icon.is-message {
+  -webkit-mask-image: url("../../assets/icons/message-white.png");
+  mask-image: url("../../assets/icons/message-white.png");
+}
+
+.icon.is-paper-plane {
+  -webkit-mask-image: url("../../assets/icons/paper-plane-white.png");
+  mask-image: url("../../assets/icons/paper-plane-white.png");
+}
+
+.icon.is-explore {
+  -webkit-mask-image: url("../../assets/icons/explore-products-white.png");
+  mask-image: url("../../assets/icons/explore-products-white.png");
+}
+
+.icon.is-developer {
+  -webkit-mask-image: url("../../assets/icons/developer-white.png");
+  mask-image: url("../../assets/icons/developer-white.png");
+}
+
+.icon.is-build {
+  -webkit-mask-image: url("../../assets/icons/build-website-white.png");
+  mask-image: url("../../assets/icons/build-website-white.png");
+}
+
+.icon.is-laptop-check {
+  -webkit-mask-image: url("../../assets/icons/laptop-check-white.png");
+  mask-image: url("../../assets/icons/laptop-check-white.png");
+}
