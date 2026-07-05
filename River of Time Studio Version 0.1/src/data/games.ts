@@ -11,6 +11,9 @@ export const games = [
       zh: "沿着贯穿时代的神秘长河，寻找被时间抹去的王国、亲人与真相",
       en: "Follow a mysterious river across eras to find a kingdom, a family, and a truth erased by time",
     },
+    action: { zh: "查看主推项目", en: "View Featured" },
+    featured: true,
+    chapter: { zh: "Chapter 01 / 岸边回声", en: "Chapter 01 / Echoes on the Shore" },
     visual: "river",
   },
   {
@@ -25,6 +28,9 @@ export const games = [
       zh: "进入角色的梦境星图，修复记忆裂缝，理解每个人未说出口的愿望",
       en: "Enter dream star maps, mend memory fractures, and understand the wishes each person never said aloud",
     },
+    action: { zh: "查看概念", en: "View Concept" },
+    featured: false,
+    chapter: { zh: "Dream Atlas / 星图裂缝", en: "Dream Atlas / Fractured Stars" },
     visual: "stars",
   },
   {
@@ -39,6 +45,9 @@ export const games = [
       zh: "通过跨越不同时代的七封信，拼合一个家族隐藏数代的真相",
       en: "Piece together a family secret hidden for generations through seven letters written across different eras",
     },
+    action: { zh: "查看概念", en: "View Concept" },
+    featured: false,
+    chapter: { zh: "Letter VII / 封蜡之夜", en: "Letter VII / Wax-Sealed Night" },
     visual: "letter",
   },
   {
@@ -53,6 +62,9 @@ export const games = [
       zh: "穿过一座座即将被遗忘的城镇，记录人们听见最后钟声前的故事",
       en: "Travel through towns on the edge of being forgotten and record the stories people tell before the final bell",
     },
+    action: { zh: "了解更多", en: "Learn More" },
+    featured: false,
+    chapter: { zh: "Last Bell / 旅人登记", en: "Last Bell / Traveler Register" },
     visual: "bells",
   },
   {
@@ -67,6 +79,9 @@ export const games = [
       zh: "在破碎的历史章节中行动，决定一个古老王国应该被复兴、遗忘，还是重新书写",
       en: "Move through broken chapters of history and decide whether an ancient kingdom should be restored, forgotten, or rewritten",
     },
+    action: { zh: "了解更多", en: "Learn More" },
+    featured: false,
+    chapter: { zh: "Archive Zero / 断代纪年", en: "Archive Zero / Broken Chronicle" },
     visual: "chronicle",
   },
 ];

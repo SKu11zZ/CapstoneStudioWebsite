@@ -5,8 +5,8 @@ import { GameCard } from "../GameCard/GameCard";
 
 export function GamesGrid() {
   return (
-    <section className="page-section" id="games">
-      <SectionHeading copy={sectionCopies.games} align="center" />
+    <section className="page-section games-section" id="games">
+      <SectionHeading copy={sectionCopies.games} />
       <div className="games-grid">
         {games.map((game) => (
           <GameCard game={game} key={game.id} />

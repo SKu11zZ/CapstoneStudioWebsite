@@ -23,6 +23,10 @@ export const navItems: { target: string; label: LocalizedText }[] = [
 ];
 
 export const heroContent = {
+  kicker: {
+    zh: "叙事 RPG 工作室",
+    en: "Narrative RPG Studio",
+  },
   title: {
     zh: "时光长河工作室",
     en: "River of Time Studio",
@@ -32,30 +36,44 @@ export const heroContent = {
     en: "We craft stories about time, choices, and people",
   },
   line: {
-    zh: "我们制作关于时间、选择与人的故事",
+    zh: "我们制作关于时间、选择与人的故事。",
     en: "Narrative Games / RPG / Fantasy Worlds / Character Bonds",
+  },
+  pitch: {
+    zh: "从一段旅程、一封旧信、一次未说出口的告别开始，让玩家在选择中拼合角色的过去，也改变他们将要抵达的未来。",
+    en: "A journey, an old letter, and a farewell left unsaid begin stories where choices uncover the past and alter the future.",
   },
   tags: {
     zh: ["叙事游戏", "RPG", "奇幻世界", "角色关系"],
     en: ["Narrative Games", "RPG", "Fantasy Worlds", "Character Bonds"],
   },
   echo: {
-    zh: "每一段旅程，都会在长河中留下回声",
-    en: "Every journey leaves an echo in the river",
+    zh: "每一段旅程，都会在长河中留下回声。",
+    en: "Every journey leaves an echo in the river.",
   },
   studioType: {
     zh: "专注叙事类游戏和 RPG 的独立游戏工作室",
     en: "An independent studio for narrative games and RPGs",
   },
   ctas: [
-    { href: "#featured", label: { zh: "查看主推", en: "View Featured" } },
+    { href: "#featured", label: { zh: "查看《长河彼岸》", en: "View Beyond the River" } },
     { href: "#characters", label: { zh: "浏览角色档案", en: "Browse Characters" } },
     { href: "#recruitment", label: { zh: "加入玩家招募", en: "Join Playtest" } },
+  ],
+  status: [
+    { label: { zh: "Current Project", en: "Current Project" }, value: { zh: "长河彼岸", en: "Beyond the River of Time" } },
+    { label: { zh: "Build", en: "Build" }, value: { zh: "Prototype in Development", en: "Prototype in Development" } },
   ],
 };
 
 export const sectionCopies = {
-  featured: { title: { zh: "主推", en: "Featured" } },
+  featured: {
+    title: { zh: "主推游戏", en: "Featured Game" },
+    intro: {
+      zh: "沿着贯穿世界与时代的神秘长河，寻找被时间抹去的王国、亲人与真相。",
+      en: "Follow a mysterious river across worlds and eras to find a kingdom, a family, and a truth erased by time.",
+    },
+  },
   techNotes: {
     title: { zh: "技术分享", en: "Tech Notes" },
     intro: {
@@ -63,7 +81,13 @@ export const sectionCopies = {
       en: "We document technical experiments in narrative systems, RPG tools, and world-building pipelines",
     },
   },
-  games: { title: { zh: "游戏列表", en: "Games" } },
+  games: {
+    title: { zh: "游戏列表", en: "Games" },
+    intro: {
+      zh: "正在开发与概念阶段的叙事项目。",
+      en: "Narrative projects in development and concept phases.",
+    },
+  },
   characters: {
     title: { zh: "角色档案", en: "Characters" },
     intro: {

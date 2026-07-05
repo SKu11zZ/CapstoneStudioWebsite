@@ -14,6 +14,10 @@ export const featuredProject = {
     zh: "《长河彼岸》 / Beyond the River of Time",
     en: "Beyond the River of Time",
   },
+  chapter: {
+    zh: "Chapter 01 / 岸边回声",
+    en: "Chapter 01 / Echoes on the Shore",
+  },
   details: [
     {
       label: { zh: "类型", en: "Genre" },
@@ -33,12 +37,12 @@ export const featuredProject = {
   ] satisfies Detail[],
   paragraphs: [
     {
-      zh: "玩家扮演一名能够听见过去回声的旅人，沿着一条贯穿世界与时代的神秘长河，寻找被时间抹去的王国、亲人和真相。",
-      en: "Players take the role of a traveler who can hear echoes from the past, following a mysterious river that flows through worlds and eras to search for a kingdom, a family, and a truth erased by time.",
+      zh: "玩家扮演一名能听见过去回声的旅人，沿着一条贯穿世界与时代的神秘长河前行。每到达一座城镇、遗迹或时代残影，玩家都会遇见被时间困住的人、物品和记忆。",
+      en: "Players take the role of a traveler who can hear echoes from the past, following a mysterious river through worlds and eras. In towns, ruins, and echoes of lost eras, they meet people, objects, and memories trapped by time.",
     },
     {
-      zh: "《长河彼岸》是一款以角色关系和选择后果为核心的叙事 RPG。玩家会在不同城镇、遗迹和时代残影之间旅行，收集记忆碎片，理解伙伴的过去，并决定哪些故事应该被保存，哪些伤口必须被放下。",
-      en: "Beyond the River of Time is a narrative RPG centered on character bonds and meaningful consequences. Players travel through towns, ruins, and echoes of lost eras, collect memory fragments, understand the past of their companions, and decide which stories should be preserved and which wounds must finally be released.",
+      zh: "游戏围绕角色关系和选择后果展开。玩家收集记忆碎片，理解伙伴的过去，并决定哪些故事应该被保存，哪些伤口必须被放下。",
+      en: "The game centers on character bonds and consequences. Players collect memory fragments, understand the past of their companions, and decide which stories should be preserved and which wounds must finally be released.",
     },
   ],
   features: [
@@ -70,13 +74,6 @@ export const featuredProject = {
         en: "Combat supports the narrative rhythm without overwhelming exploration",
       },
     },
-    {
-      title: { zh: "世界档案", en: "World Archives" },
-      body: {
-        zh: "玩家逐步拼合王国、文明和历史断层",
-        en: "Reconstruct kingdoms, civilizations, and broken histories piece by piece",
-      },
-    },
   ],
   slogan: {
     zh: "河流带走了一切，也记得一切",
@@ -84,7 +81,7 @@ export const featuredProject = {
   },
   ctas: [
     { href: "#characters", label: { zh: "查看角色", en: "Meet Characters" } },
-    { href: "#recruitment", label: { zh: "加入测试", en: "Join Playtest" } },
     { href: "#tech-notes", label: { zh: "阅读技术分享", en: "Read Tech Notes" } },
+    { href: "#recruitment", label: { zh: "加入测试", en: "Join Playtest" } },
   ],
 };

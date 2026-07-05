@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Chroma Fantasy Studio">
+  <defs>
+    <linearGradient id="paint" x1="12" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#9fb5c8"/>
+      <stop offset=".55" stop-color="#d7b98a"/>
+      <stop offset="1" stop-color="#a78f9e"/>
+    </linearGradient>
+  </defs>
+  <path d="M14 42c3-18 17-31 36-33-1 17-11 32-29 40l-9 4 2-11Z" fill="url(#paint)"/>
+  <path d="M20 41c8-7 15-14 22-24" fill="none" stroke="#fff8e8" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="18" cy="46" r="5" fill="#b58a55"/>
+</svg>

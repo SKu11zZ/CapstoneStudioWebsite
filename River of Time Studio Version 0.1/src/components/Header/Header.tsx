@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { navItems } from "../../data/siteContent";
 import { useLanguage } from "../../i18n/LanguageContext";
 import { Icon } from "../Icon";
@@ -10,10 +10,30 @@ const closeIcon = "/assets/icons/close-white.png";
 export function Header() {
   const { language } = useLanguage();
   const [open, setOpen] = useState(false);
+  const [activeTarget, setActiveTarget] = useState("hero");
 
   function closeMenu() {
     setOpen(false);
   }
+
+  useEffect(() => {
+    const sections = navItems.map((item) => document.getElementById(item.target)).filter(Boolean);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((entry) => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+        if (visible?.target.id) {
+          setActiveTarget(visible.target.id);
+        }
+      },
+      { rootMargin: "-22% 0px -58% 0px", threshold: [0.18, 0.32, 0.5] },
+    );
+
+    sections.forEach((section) => section && observer.observe(section));
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <header className="site-header">
@@ -29,7 +49,7 @@ export function Header() {
 
       <nav className="desktop-nav" aria-label={language === "zh" ? "主导航" : "Primary navigation"}>
         {navItems.map((item) => (
-          <a href={`#${item.target}`} key={item.target}>
+          <a className={activeTarget === item.target ? "is-active" : ""} href={`#${item.target}`} key={item.target}>
             {item.label[language]}
           </a>
         ))}
@@ -50,7 +70,7 @@ export function Header() {
 
       <nav className={`mobile-nav ${open ? "is-open" : ""}`} aria-label={language === "zh" ? "移动端导航" : "Mobile navigation"}>
         {navItems.map((item) => (
-          <a href={`#${item.target}`} key={item.target} onClick={closeMenu}>
+          <a className={activeTarget === item.target ? "is-active" : ""} href={`#${item.target}`} key={item.target} onClick={closeMenu}>
             {item.label[language]}
           </a>
         ))}
