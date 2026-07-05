@@ -1,8 +1,9 @@
 import { createReadStream, existsSync, statSync } from "node:fs";
 import { createServer } from "node:http";
 import { extname, join, normalize, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = resolve("dist");
+const root = fileURLToPath(new URL("../dist", import.meta.url));
 const preferredPort = Number(process.argv[2] || process.env.PORT || 4177);
 
 const mimeTypes = {
