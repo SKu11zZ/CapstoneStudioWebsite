@@ -1,6 +1,7 @@
 .hero-background {
   position: absolute;
   inset: 0;
+  z-index: 0;
   pointer-events: none;
   background:
     linear-gradient(125deg, transparent 0 24%, rgba(110, 182, 217, 0.09) 24% 25%, transparent 25% 58%, rgba(216, 181, 109, 0.08) 58% 59%, transparent 59%),
@@ -263,10 +264,16 @@
 
 /* Refactor layer: project cover and refined atmosphere */
 .hero-background {
+  inset: calc(var(--header-height) * -1) -8vw -14vh;
   background:
+    linear-gradient(90deg, rgba(3, 7, 13, 0.94) 0%, rgba(3, 7, 13, 0.65) 42%, rgba(3, 7, 13, 0.78) 100%),
+    linear-gradient(180deg, rgba(3, 7, 13, 0.18) 0%, rgba(3, 7, 13, 0.2) 52%, var(--color-bg) 96%),
+    url("/assets/generated/time-river-hero.png") center 45% / cover no-repeat,
     radial-gradient(circle at 10% 24%, rgba(216, 182, 106, 0.08), transparent 22rem),
     radial-gradient(circle at 82% 16%, rgba(142, 183, 214, 0.1), transparent 28rem),
     linear-gradient(180deg, rgba(255, 255, 255, 0.018), transparent 32%);
+  opacity: 0.92;
+  mask-image: linear-gradient(180deg, #000 0%, #000 72%, transparent 100%);
 }
 
 .hero-background::before {
@@ -350,6 +357,17 @@
 .cover-art {
   z-index: 0;
   overflow: hidden;
+}
+
+.cover-art::before {
+  content: "";
+  position: absolute;
+  inset: -3%;
+  background:
+    linear-gradient(180deg, rgba(3, 7, 13, 0.24), rgba(3, 7, 13, 0.72)),
+    url("/assets/generated/games-star-map-fade.png") center / cover no-repeat;
+  opacity: 0.2;
+  transform: scale(1.02);
 }
 
 .cover-grid {
@@ -556,9 +574,23 @@
   --cover-b: rgba(216, 182, 106, 0.27);
 }
 
+.cover-theme-river .cover-art::before {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 13, 0.16), rgba(3, 7, 13, 0.78)),
+    url("/assets/generated/time-river-hero.png") center 48% / cover no-repeat;
+  opacity: 0.48;
+}
+
 .cover-theme-stars {
   --cover-a: rgba(142, 183, 214, 0.34);
   --cover-b: rgba(188, 153, 229, 0.18);
+}
+
+.cover-theme-stars .cover-art::before {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 13, 0.22), rgba(3, 7, 13, 0.78)),
+    url("/assets/generated/games-star-map-fade.png") center / cover no-repeat;
+  opacity: 0.36;
 }
 
 .cover-theme-stars .cover-river {
@@ -607,6 +639,13 @@
 .cover-theme-featured {
   --cover-a: rgba(142, 183, 214, 0.34);
   --cover-b: rgba(216, 182, 106, 0.26);
+}
+
+.cover-theme-featured .cover-art::before {
+  background:
+    linear-gradient(180deg, rgba(3, 7, 13, 0.16), rgba(3, 7, 13, 0.76)),
+    url("/assets/generated/archive-dossier-fade.png") center / cover no-repeat;
+  opacity: 0.42;
 }
 
 .game-card .project-cover-compact .cover-art {
