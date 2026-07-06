@@ -26,15 +26,23 @@
   object-fit: cover;
 }
 
+.featured-game__content {
+  max-width: 620px;
+}
+
+.featured-game__content .section-lead {
+  max-width: 42ch;
+}
+
 .featured-game__content h3 {
-  margin: 1.2rem 0 0.6rem;
+  margin: 1rem 0 0.55rem;
   font-family: var(--font-display);
   font-size: clamp(1.3rem, 2vw, 1.8rem);
 }
 
 .featured-game__content p {
   color: var(--color-muted);
-  line-height: 1.82;
+  line-height: 1.72;
 }
 
 .featured-game__summary {
@@ -46,7 +54,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  margin-top: 1rem;
+  margin-top: 0.95rem;
 }
 
 .featured-game__meta span {
@@ -62,8 +70,8 @@
 .feature-list {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0.55rem;
-  margin: 1rem 0 0;
+  gap: 0.6rem 1.2rem;
+  margin: 1.05rem 0 0;
   padding: 0;
   list-style: none;
 }

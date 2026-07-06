@@ -27,15 +27,13 @@ export function FeaturedGame() {
             intro={featured.promo}
           />
           <div className="featured-game__meta">
-            <span>{t(featured.type)}</span>
-            <span>{featured.platform}</span>
             <span>{t(featured.status)}</span>
+            <span>{featured.platform}</span>
           </div>
           <h3>{t(featured.title)}</h3>
           <p className="featured-game__summary">{t(featured.summary)}</p>
-          <p>{t(featured.detail)}</p>
           <ul className="feature-list">
-            {featured.highlights[language].map((item) => (
+            {featured.highlights[language].slice(0, 4).map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

@@ -9,7 +9,7 @@ export function GamesGrid() {
       <div className="section-inner">
         <SectionHeader
           kicker={{ zh: "World Catalogue", en: "World Catalogue" }}
-          title={{ zh: "游戏列表", en: "Games" }}
+          title={{ zh: "工作室的其他游戏", en: "Other Studio Games" }}
           intro={{
             zh: "每个项目都从角色、地点和一段未完成的情绪开始",
             en: "Every project begins with characters, places, and an unfinished feeling",
